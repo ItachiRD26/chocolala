@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Catalog",
+    "about": "About Us",
+    "contact": "Contact",
+    "tours": "Tours"
+  },
+  "hero": {
+    "slogan": "Less foam, more chocolate.",
+    "ctaProducts": "View catalog",
+    "ctaTours": "Discover our tours"
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Dominican cacao, made by hand",
+    "body": "We are a Dominican company dedicated to crafting authentic cacao-derived products, a healthy alternative that honors the work of rural women in Altamira, Puerto Plata. Every product comes from an artisanal process that respects the land and tradition.",
+    "cta": "Learn more about us"
+  },
+  "products": {
+    "title": "Our Catalog",
+    "subtitle": "Artisanal products made from Dominican cacao.",
+    "inquireWhatsapp": "Ask on WhatsApp",
+    "inquiryMessage": "Hi, I'm interested in: {product}",
+    "allCategories": "All",
+    "empty": "We'll be adding products to this category soon.",
+    "secondaryLabel": "A complementary selection",
+    "vinosSlogan": "A sip that connects tradition, flavor, and nature.",
+    "categoryDescriptions": {
+      "chocolate": "Bean to bar, handcrafted in Altamira. Every bar tells the story of Dominican cacao.",
+      "cacao": "From the earth directly to your hands. The purest essence of cacao, nothing added.",
+      "snacks": "Selected cacao beans, artisanally coated. A snack that respects the cacao.",
+      "cuidado-personal": "Made with our own cacao butter. Natural cosmetics born from Dominican cacao.",
+      "apoyo-comunitario": "Products sold by Chocolala to support other women's entrepreneurial groups in the community.",
+      "vinos": "Made with fresh fruits from our own community. Young wines, no added alcohol."
+    }
+  },
+  "featured": {
+    "eyebrow": "Customer favorites",
+    "title": "Featured Products",
+    "viewAll": "View full catalog",
+    "empty": "We're preparing our catalog. Check back soon!"
+  },
+  "tours": {
+    "eyebrow": "Experience the factory",
+    "title": "Our Tours",
+    "bookWhatsapp": "Book on WhatsApp",
+    "inquiryMessage": "Hi, I'd like to book the tour: {tour}",
+    "empty": "We're preparing the details for our tours."
+  },
+  "gallery": {
+    "eyebrow": "Behind the chocolate",
+    "title": "Our gallery"
+  },
+  "mapCta": {
+    "eyebrow": "We're waiting for you",
+    "title": "Visit us in Altamira",
+    "body": "Come visit our artisanal factory in Las Lajas Altamira, Puerto Plata.",
+    "cta": "Get directions",
+    "whatsapp": "Message us"
+  },
+  "about": {
+    "title": "About Us",
+    "history": {
+      "eyebrow": "Who we are",
+      "title": "Our story",
+      "body": "Fábrica de Chocolate Artesanal Chocolala is a Dominican company dedicated to crafting authentic cacao-derived products, a healthy alternative that honors the work of rural women in Las Lajas Altamira, Puerto Plata."
+    },
+    "mission": {
+      "title": "Mission",
+      "body": "To craft authentic cacao-derived products as a healthy alternative, honoring the work of Dominican rural women."
+    },
+    "vision": {
+      "title": "Vision",
+      "body": "To be an innovative company with national and international reach, socially responsible to its people and its environment."
+    },
+    "valuesTitle": "Our Values",
+    "valuesHeading": "What defines us",
+    "values": [
+      "Honesty",
+      "Commitment",
+      "Solidarity",
+      "Empathy",
+      "Integrity",
+      "Teamwork"
+    ],
+    "team": {
+      "eyebrow": "The hands behind the chocolate",
+      "title": "Our Team",
+      "subtitle": "Real people from Las Lajas Altamira who make every product possible.",
+      "members": [
+        { "name": "Nelfi Altagracia Garcia", "role": "Manager", "image": "equipo-5" },
+        { "name": "Kenia Altagracia Batista", "role": "Executive Secretary", "image": "equipo-9" },
+        { "name": "Jeisy David Arias Almonte", "role": "Warehouse Manager", "image": "equipo-2" },
+        { "name": "Elizabeth Maria Garcia", "role": "Collaborator", "image": "equipo-1" },
+        { "name": "Evarista Gomez Medina", "role": "Collaborator", "image": "equipo-3" },
+        { "name": "Maria Aurelia Alvarez", "role": "Collaborator", "image": "equipo-4" },
+        { "name": "Alejandrina Rosario Cabrera", "role": "Collaborator", "image": "equipo-6" },
+        { "name": "Francia Altagracia Capellan", "role": "Collaborator", "image": "equipo-7" },
+        { "name": "Jureidy Salas Rivera", "role": "Collaborator", "image": "equipo-8" }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Let's talk.",
+    "eyebrow": "Chocolala RD",
+    "subtitle": "We're in Altamira, Puerto Plata — and on your WhatsApp.",
+    "whatsappCta": "Message us now",
+    "whatsappLabel": "WhatsApp",
+    "phoneLabel": "Phone",
+    "phoneBody": "Call us or send a message directly.",
+    "socialLabel": "Social media",
+    "socialBody": "Follow us and stay up to date.",
+    "addressLabel": "Where to find us",
+    "addressBody": "Las Lajas Altamira, main road palmar grande, Altamira, Puerto Plata.",
+    "findUs": "Find us",
+    "openMaps": "Open in Google Maps"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "address": "Las Lajas Altamira, main road palmar grande, Altamira, Puerto Plata",
+    "linksTitle": "Links",
+    "contactTitle": "Contact",
+    "followTitle": "Follow us"
+  },
+  "whatsapp": {
+    "label": "Message us on WhatsApp"
+  }
+}

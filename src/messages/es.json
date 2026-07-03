@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "products": "Catálogo",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "tours": "Tours"
+  },
+  "hero": {
+    "slogan": "Poca espuma, mucho chocolate.",
+    "ctaProducts": "Ver catálogo",
+    "ctaTours": "Conoce nuestros tours"
+  },
+  "story": {
+    "eyebrow": "Nuestra historia",
+    "title": "Cacao dominicano, hecho a mano",
+    "body": "Somos una empresa dominicana dedicada a elaborar productos auténticos derivados del cacao, una alternativa saludable que exalta el trabajo de la mujer rural de Altamira, Puerto Plata. Cada producto nace de un proceso artesanal que respeta la tierra y la tradición.",
+    "cta": "Conoce más sobre nosotros"
+  },
+  "products": {
+    "title": "Nuestro Catálogo",
+    "subtitle": "Productos artesanales derivados del cacao dominicano.",
+    "inquireWhatsapp": "Consultar por WhatsApp",
+    "inquiryMessage": "Hola, me interesa el producto: {product}",
+    "allCategories": "Todos",
+    "empty": "Pronto agregaremos productos a esta categoría.",
+    "secondaryLabel": "Selección complementaria",
+    "vinosSlogan": "Un sorbo que conecta tradición, sabor y naturaleza.",
+    "categoryDescriptions": {
+      "chocolate": "Bean to bar, hecho a mano en Altamira. Cada tableta cuenta la historia del cacao dominicano.",
+      "cacao": "De la tierra directamente a tus manos. La esencia más pura del cacao, sin nada añadido.",
+      "snacks": "Granos de cacao seleccionado revestidos artesanalmente. El snack que respeta el cacao.",
+      "cuidado-personal": "Elaborados con nuestra manteca de cacao. Cosmética natural nacida del cacao dominicano.",
+      "apoyo-comunitario": "Productos que Chocolala comercializa para apoyar a otros grupos de mujeres emprendedoras de la comunidad.",
+      "vinos": "Elaborados con frutas frescas de la propia comunidad. Vinos jóvenes y sin alcohol agregado."
+    }
+  },
+  "featured": {
+    "eyebrow": "Lo más pedido",
+    "title": "Productos destacados",
+    "viewAll": "Ver catálogo completo",
+    "empty": "Estamos preparando nuestro catálogo. ¡Vuelve pronto!"
+  },
+  "tours": {
+    "eyebrow": "Vívelo en la fábrica",
+    "title": "Nuestros Tours",
+    "bookWhatsapp": "Reservar por WhatsApp",
+    "inquiryMessage": "Hola, quiero reservar el tour: {tour}",
+    "empty": "Estamos preparando la información de nuestros tours."
+  },
+  "gallery": {
+    "eyebrow": "Detrás del chocolate",
+    "title": "Nuestra galería"
+  },
+  "mapCta": {
+    "eyebrow": "Te esperamos",
+    "title": "Visítanos en Altamira",
+    "body": "Ven a conocer nuestra fábrica artesanal en Las Lajas Altamira, Puerto Plata.",
+    "cta": "Cómo llegar",
+    "whatsapp": "Escríbenos"
+  },
+  "about": {
+    "title": "Nosotros",
+    "history": {
+      "eyebrow": "Quiénes somos",
+      "title": "Nuestra historia",
+      "body": "Fábrica de Chocolate Artesanal Chocolala es una empresa dominicana dedicada a elaborar productos auténticos derivados del cacao, una alternativa saludable que exalta el trabajo de la mujer rural de Las Lajas Altamira, Puerto Plata."
+    },
+    "mission": {
+      "title": "Misión",
+      "body": "Elaborar productos auténticos derivados del cacao como una alternativa saludable, exaltando el trabajo de la mujer rural dominicana."
+    },
+    "vision": {
+      "title": "Visión",
+      "body": "Ser una empresa innovadora con posicionamiento nacional e internacional, socialmente responsable con su gente y su entorno."
+    },
+    "valuesTitle": "Nuestros Valores",
+    "valuesHeading": "Lo que nos define",
+    "values": [
+      "Honestidad",
+      "Compromiso",
+      "Solidaridad",
+      "Empatía",
+      "Integridad",
+      "Trabajo en equipo"
+    ],
+    "team": {
+      "eyebrow": "Las manos detrás del chocolate",
+      "title": "Nuestro Equipo",
+      "subtitle": "Personas reales de Las Lajas Altamira que hacen posible cada producto.",
+      "members": [
+        { "name": "Nelfi Altagracia Garcia", "role": "Gerente", "image": "equipo-5" },
+        { "name": "Kenia Altagracia Batista", "role": "Secretaria Ejecutiva", "image": "equipo-9" },
+        { "name": "Jeisy David Arias Almonte", "role": "Encargado de Almacén", "image": "equipo-2" },
+        { "name": "Elizabeth Maria Garcia", "role": "Colaboradora", "image": "equipo-1" },
+        { "name": "Evarista Gomez Medina", "role": "Colaboradora", "image": "equipo-3" },
+        { "name": "Maria Aurelia Alvarez", "role": "Colaboradora", "image": "equipo-4" },
+        { "name": "Alejandrina Rosario Cabrera", "role": "Colaboradora", "image": "equipo-6" },
+        { "name": "Francia Altagracia Capellan", "role": "Colaboradora", "image": "equipo-7" },
+        { "name": "Jureidy Salas Rivera", "role": "Colaboradora", "image": "equipo-8" }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Hablemos.",
+    "eyebrow": "Chocolala RD",
+    "subtitle": "Estamos en Altamira, Puerto Plata — y en tu WhatsApp.",
+    "whatsappCta": "Escríbenos ahora",
+    "whatsappLabel": "WhatsApp",
+    "phoneLabel": "Teléfonos",
+    "phoneBody": "Llámanos o escríbenos directamente.",
+    "socialLabel": "Redes sociales",
+    "socialBody": "Síguenos y mantente al tanto de todo.",
+    "addressLabel": "Dónde estamos",
+    "addressBody": "Las Lajas Altamira, carretera principal palmar grande, Altamira, Puerto Plata.",
+    "findUs": "Encuéntranos",
+    "openMaps": "Abrir en Google Maps"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "address": "Las Lajas Altamira, carretera principal palmar grande, Altamira, Puerto Plata",
+    "linksTitle": "Enlaces",
+    "contactTitle": "Contacto",
+    "followTitle": "Síguenos"
+  },
+  "whatsapp": {
+    "label": "Escríbenos por WhatsApp"
+  }
+}
