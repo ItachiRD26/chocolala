@@ -10,7 +10,7 @@ export default function StoryPreview() {
     <AnimatedSection className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:gap-16">
       <div className="relative h-72 overflow-hidden rounded-2xl md:h-96">
         <Image
-          src="/catalog/chocolate/IMG_4128.webp"
+          src="/catalog/chocolate/CHOCOLATE70-DIFERENTES VIEWS (5).webp"
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 50vw"

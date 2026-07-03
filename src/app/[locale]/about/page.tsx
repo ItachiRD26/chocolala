@@ -74,7 +74,7 @@ function HistorySection() {
         className="relative h-72 overflow-hidden md:h-full"
       >
         <Image
-          src="/catalog/chocolate/IMG_4179.webp"
+          src="/catalog/chocolate/CHOCOLATE70-DIFERENTES VIEWS (3).webp"
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 50vw"

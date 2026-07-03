@@ -14,7 +14,7 @@ export default function HeroSection() {
       {/* Mobile: static image */}
       <div className="absolute inset-0 md:hidden">
         <Image
-          src="/catalog/chocolate/IMG_4131.webp"
+          src="/catalog/chocolate/CHOCOLATE70 (3).webp"
           alt=""
           fill
           priority

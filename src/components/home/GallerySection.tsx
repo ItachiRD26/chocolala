@@ -7,12 +7,12 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
 
 const GALLERY_IMAGES = [
-  "/catalog/chocolate/IMG_4131.webp",
-  "/catalog/chocolate/IMG_4163.webp",
-  "/catalog/chocolate/IMG_4196.webp",
-  "/catalog/chocolate/IMG_4128.webp",
-  "/catalog/chocolate/IMG_4240.webp",
-  "/catalog/chocolate/IMG_4179.webp",
+  "/catalog/chocolate/CHOCOLATE70 (1).webp",
+  "/catalog/chocolate/CHOCOLATE70-DIFERENTES VIEWS (1).webp",
+  "/catalog/chocolate/CHOCOLATE BLANCO CON SABOR A NARANJA (1).webp",
+  "/catalog/chocolate/CHOCOLATE DE TAZA O MESA (1).webp",
+  "/catalog/chocolate/MANTECA DE CACAO (1).webp",
+  "/catalog/chocolate/LABIAL DE CACAO (1).webp",
 ];
 
 export default function GallerySection() {

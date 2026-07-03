@@ -12,6 +12,7 @@ type ImageCarouselProps = {
   alt: string;
   fallback: ReactNode;
   className?: string;
+  priority?: boolean;
 };
 
 export default function ImageCarousel({
@@ -19,6 +20,7 @@ export default function ImageCarousel({
   alt,
   fallback,
   className = "",
+  priority = false,
 }: ImageCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: images.length > 1 });
   const [selected, setSelected] = useState(0);
@@ -51,8 +53,10 @@ export default function ImageCarousel({
                 src={src}
                 alt={`${alt} ${i + 1}`}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                sizes="(max-width: 768px) 100vw, 55vw"
                 className="object-cover"
+                priority={priority && i === 0}
+                loading={priority && i === 0 ? undefined : "lazy"}
               />
             </div>
           ))}
