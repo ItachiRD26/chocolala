@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
+import { useState, useCallback } from "react";
 import {
   useCatalogProducts,
   useCatalogCategories,
 } from "@/hooks/useCatalogData";
 import ImageCarousel from "@/components/ui/ImageCarousel";
+import ProductLightbox from "@/components/ui/ProductLightbox";
 import ToursSection from "@/components/home/ToursSection";
 import {
   CacaoPodIcon,
@@ -16,6 +17,7 @@ import {
   WineGlassIcon,
   HeartIcon,
   HandshakeIcon,
+  ExpandIcon,
 } from "@/components/ui/icons";
 import { whatsappLink } from "@/lib/constants";
 import type { Category, Product } from "@/types";
@@ -34,6 +36,9 @@ export default function ProductsPage() {
   const locale = useLocale() as "es" | "en";
   const { products } = useCatalogProducts();
   const { categories } = useCatalogCategories();
+  const [lightboxProduct, setLightboxProduct] = useState<Product | null>(null);
+  const openLightbox = useCallback((p: Product) => setLightboxProduct(p), []);
+  const closeLightbox = useCallback(() => setLightboxProduct(null), []);
 
   const mainCategories = categories.filter((c) => c.slug !== "vinos");
   const vinosCategory = categories.find((c) => c.slug === "vinos");
@@ -41,6 +46,7 @@ export default function ProductsPage() {
 
   return (
     <div>
+      <ProductLightbox product={lightboxProduct} onClose={closeLightbox} />
       <div className="relative overflow-hidden bg-chocolala-brown-dark px-6 py-24 text-center">
         <div
           aria-hidden="true"
@@ -98,6 +104,7 @@ export default function ProductsPage() {
                 locale={locale}
                 reverse={i % 2 !== 0}
                 t={t}
+                onImageClick={() => openLightbox(product)}
               />
             ))}
           </section>
@@ -135,18 +142,28 @@ export default function ProductsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
-                    className="flex flex-col overflow-hidden rounded-2xl bg-chocolala-brown-light"
+                    className="group flex flex-col overflow-hidden rounded-2xl bg-chocolala-brown-light"
                   >
-                    <ImageCarousel
-                      images={product.images}
-                      alt={product.name[locale]}
-                      className="aspect-4/3 w-full"
-                      fallback={
-                        <div className="flex h-full items-center justify-center bg-chocolala-brown text-chocolala-cream/20">
-                          <WineGlassIcon className="h-12 w-12" />
-                        </div>
-                      }
-                    />
+                    <div
+                      className="relative aspect-4/3 w-full cursor-zoom-in"
+                      onClick={() => product.images.length > 0 && openLightbox(product)}
+                    >
+                      <ImageCarousel
+                        images={product.images}
+                        alt={product.name[locale]}
+                        className="h-full w-full"
+                        fallback={
+                          <div className="flex h-full items-center justify-center bg-chocolala-brown text-chocolala-cream/20">
+                            <WineGlassIcon className="h-12 w-12" />
+                          </div>
+                        }
+                      />
+                      {product.images.length > 0 && (
+                        <span className="pointer-events-none absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity group-hover:opacity-100">
+                          <ExpandIcon className="h-3.5 w-3.5" />
+                        </span>
+                      )}
+                    </div>
                     <div className="flex flex-col gap-3 p-5">
                       <h3 className="font-serif text-xl text-chocolala-cream">
                         {product.name[locale]}
@@ -219,14 +236,17 @@ function EditorialProduct({
   locale,
   reverse,
   t,
+  onImageClick,
 }: {
   product: Product;
   locale: "es" | "en";
   reverse: boolean;
   t: ReturnType<typeof useTranslations>;
+  onImageClick: () => void;
 }) {
   const price = product.price?.[locale];
   const Icon = CATEGORY_ICONS[product.category] ?? CacaoPodIcon;
+  const hasImages = product.images.length > 0;
 
   return (
     <motion.div
@@ -234,11 +254,14 @@ function EditorialProduct({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`flex min-h-[70vh] flex-col ${
+      className={`group/editorial flex min-h-[70vh] flex-col ${
         reverse ? "md:flex-row-reverse" : "md:flex-row"
       }`}
     >
-      <div className="relative h-[50vh] w-full overflow-hidden md:h-auto md:w-[55%]">
+      <div
+        className={`relative h-[50vh] w-full overflow-hidden md:h-auto md:w-[55%] ${hasImages ? "cursor-zoom-in" : ""}`}
+        onClick={hasImages ? onImageClick : undefined}
+      >
         <ImageCarousel
           images={product.images}
           alt={product.name[locale]}
@@ -249,6 +272,11 @@ function EditorialProduct({
             </div>
           }
         />
+        {hasImages && (
+          <span className="pointer-events-none absolute bottom-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity duration-200 group-hover/editorial:opacity-100">
+            <ExpandIcon className="h-4 w-4" />
+          </span>
+        )}
       </div>
 
       <div
