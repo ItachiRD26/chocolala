@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/icons";
 
 const DOTS_MAX = 8;
+const BLUR_PLACEHOLDER = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII=";
 
 type ImageCarouselProps = {
   images: string[];
@@ -57,6 +58,8 @@ export default function ImageCarousel({
                 className="object-cover"
                 priority={priority && i === 0}
                 loading={priority && i === 0 ? undefined : "lazy"}
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
               />
             </div>
           ))}

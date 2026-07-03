@@ -35,6 +35,8 @@ function ContactHero({ t }: { t: ReturnType<typeof useTranslations> }) {
         priority
         sizes="100vw"
         className="object-cover"
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII="
       />
       <div aria-hidden="true" className="absolute inset-0 bg-chocolala-brown-dark/80" />
 

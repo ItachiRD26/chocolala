@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
 
+const BLUR_PLACEHOLDER = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII=";
+
 const GALLERY_IMAGES = [
   "/catalog/chocolate/CHOCOLATE70 (1).webp",
   "/catalog/chocolate/CHOCOLATE70-DIFERENTES VIEWS (1).webp",
@@ -51,6 +53,8 @@ export default function GallerySection() {
                 fill
                 sizes="(max-width: 640px) 50vw, 33vw"
                 className="object-cover transition-transform duration-300 hover:scale-105"
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
               />
             </motion.div>
           ))}

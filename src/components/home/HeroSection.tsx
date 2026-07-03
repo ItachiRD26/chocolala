@@ -20,6 +20,8 @@ export default function HeroSection() {
           priority
           sizes="(max-width: 767px) 100vw, 0px"
           className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII="
         />
       </div>
 

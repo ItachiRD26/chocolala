@@ -79,6 +79,8 @@ function HistorySection() {
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII="
         />
         <div className="absolute inset-0 bg-chocolala-brown/20" />
       </motion.div>
