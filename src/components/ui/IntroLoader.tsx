@@ -98,13 +98,14 @@ export default function IntroLoader() {
         setGone(true);
       }}
     >
-      {/* Video — no filter/transform (iOS GPU compositing bug) */}
+      {/* Video — poster shows first frame instantly while video loads */}
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        poster="/videos/loader-poster.webp"
         style={{
           position: "absolute",
           inset: 0,
