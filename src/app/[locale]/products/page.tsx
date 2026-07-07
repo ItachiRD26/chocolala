@@ -6,9 +6,11 @@ import { useState, useCallback } from "react";
 import {
   useCatalogProducts,
   useCatalogCategories,
+  useCatalogTours,
 } from "@/hooks/useCatalogData";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 import ProductLightbox from "@/components/ui/ProductLightbox";
+import MobileCatalogSwipe from "@/components/products/MobileCatalogSwipe";
 import ToursSection from "@/components/home/ToursSection";
 import {
   CacaoPodIcon,
@@ -36,6 +38,8 @@ export default function ProductsPage() {
   const locale = useLocale() as "es" | "en";
   const { products } = useCatalogProducts();
   const { categories } = useCatalogCategories();
+  const { tours } = useCatalogTours();
+  const tTours = useTranslations("tours");
   const [lightboxProduct, setLightboxProduct] = useState<Product | null>(null);
   const openLightbox = useCallback((p: Product) => setLightboxProduct(p), []);
   const closeLightbox = useCallback(() => setLightboxProduct(null), []);
@@ -46,8 +50,8 @@ export default function ProductsPage() {
 
   return (
     <div>
-      <ProductLightbox product={lightboxProduct} onClose={closeLightbox} />
-      <div className="relative overflow-hidden bg-chocolala-brown-dark px-6 py-24 text-center">
+      {/* ── Page header (desktop only — mobile has its own cover slide) ── */}
+      <div className="relative hidden overflow-hidden bg-chocolala-brown-dark px-6 py-14 text-center md:block md:py-24">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-chocolala-orange/10 blur-3xl"
@@ -57,24 +61,24 @@ export default function ProductsPage() {
           className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-chocolala-orange/8 blur-3xl"
         />
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 12 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-4 font-sans text-sm font-semibold uppercase tracking-widest text-chocolala-orange"
         >
           Chocolala RD
         </motion.p>
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-6xl text-chocolala-cream sm:text-7xl"
+          className="font-serif text-5xl text-chocolala-cream sm:text-6xl md:text-7xl"
         >
           {t("title")}
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto mt-5 max-w-md font-sans text-base text-chocolala-cream/60"
         >
@@ -82,113 +86,132 @@ export default function ProductsPage() {
         </motion.p>
       </div>
 
-      {mainCategories.map((category) => {
-        const categoryProducts = products.filter(
-          (p) => p.category === category.slug,
-        );
-        if (categoryProducts.length === 0) return null;
-        const Icon = CATEGORY_ICONS[category.slug] ?? CacaoPodIcon;
-
-        return (
-          <section key={category.id} id={category.slug}>
-            <ChapterHeader
-              category={category}
-              locale={locale}
-              description={descriptions[category.slug] ?? ""}
-              Icon={Icon}
-            />
-            {categoryProducts.map((product, i) => (
-              <EditorialProduct
-                key={product.id}
-                product={product}
-                locale={locale}
-                reverse={i % 2 !== 0}
-                t={t}
-                onImageClick={() => openLightbox(product)}
-              />
-            ))}
-          </section>
-        );
-      })}
-
-      <div id="tours" className="border-t border-chocolala-cream/10">
-        <ToursSection />
+      {/* ── MOBILE: full-screen swipe catalog (tours included) ── */}
+      <div className="md:hidden">
+        <MobileCatalogSwipe
+          products={products}
+          categories={categories}
+          tours={tours}
+          locale={locale}
+          inquireLabel={t("inquireWhatsapp")}
+          inquiryMessage={(name) => t("inquiryMessage", { product: name })}
+          tourBookLabel={tTours("bookWhatsapp")}
+          tourBookMessage={(name) => tTours("inquiryMessage", { tour: name })}
+        />
       </div>
 
-      {vinosCategory && (() => {
-        const vinosProducts = products.filter(
-          (p) => p.category === vinosCategory.slug,
-        );
-        if (vinosProducts.length === 0) return null;
-        return (
-          <section id="vinos" className="border-t border-chocolala-cream/10 py-20">
-            <div className="mx-auto max-w-6xl px-6">
-              <div className="mb-10 flex flex-col gap-2">
-                <span className="font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-cream/40">
-                  {t("secondaryLabel")}
-                </span>
-                <h2 className="font-serif text-3xl text-chocolala-cream">
-                  {vinosCategory.name[locale]}
-                </h2>
-                <p className="font-serif text-base italic text-chocolala-cream/50">
-                  {t("vinosSlogan")}
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {vinosProducts.map((product, i) => (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                    className="group flex flex-col overflow-hidden rounded-2xl bg-chocolala-brown-light"
-                  >
-                    <div
-                      className="relative aspect-4/3 w-full cursor-zoom-in"
-                      onClick={() => product.images.length > 0 && openLightbox(product)}
+      {/* ── DESKTOP: editorial layout ── */}
+      <div className="hidden md:block">
+        <ProductLightbox product={lightboxProduct} onClose={closeLightbox} />
+
+        {mainCategories.map((category) => {
+          const categoryProducts = products.filter(
+            (p) => p.category === category.slug,
+          );
+          if (categoryProducts.length === 0) return null;
+          const Icon = CATEGORY_ICONS[category.slug] ?? CacaoPodIcon;
+
+          return (
+            <section key={category.id} id={category.slug}>
+              <ChapterHeader
+                category={category}
+                locale={locale}
+                description={descriptions[category.slug] ?? ""}
+                Icon={Icon}
+              />
+              {categoryProducts.map((product, i) => (
+                <EditorialProduct
+                  key={product.id}
+                  product={product}
+                  locale={locale}
+                  reverse={i % 2 !== 0}
+                  t={t}
+                  onImageClick={() => openLightbox(product)}
+                />
+              ))}
+            </section>
+          );
+        })}
+
+        <div id="tours" className="border-t border-chocolala-cream/10">
+          <ToursSection />
+        </div>
+
+        {vinosCategory && (() => {
+          const vinosProducts = products.filter(
+            (p) => p.category === vinosCategory.slug,
+          );
+          if (vinosProducts.length === 0) return null;
+          return (
+            <section id="vinos" className="border-t border-chocolala-cream/10 py-20">
+              <div className="mx-auto max-w-6xl px-6">
+                <div className="mb-10 flex flex-col gap-2">
+                  <span className="font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-cream/40">
+                    {t("secondaryLabel")}
+                  </span>
+                  <h2 className="font-serif text-3xl text-chocolala-cream">
+                    {vinosCategory.name[locale]}
+                  </h2>
+                  <p className="font-serif text-base italic text-chocolala-cream/50">
+                    {t("vinosSlogan")}
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                  {vinosProducts.map((product, i) => (
+                    <motion.div
+                      key={product.id}
+                      initial={{ y: 30 }}
+                      whileInView={{ y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: i * 0.1 }}
+                      className="group flex flex-col overflow-hidden rounded-2xl bg-chocolala-brown-light"
                     >
-                      <ImageCarousel
-                        images={product.images}
-                        alt={product.name[locale]}
-                        className="h-full w-full"
-                        fallback={
-                          <div className="flex h-full items-center justify-center bg-chocolala-brown text-chocolala-cream/20">
-                            <WineGlassIcon className="h-12 w-12" />
-                          </div>
-                        }
-                      />
-                      {product.images.length > 0 && (
-                        <span className="pointer-events-none absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity group-hover:opacity-100">
-                          <ExpandIcon className="h-3.5 w-3.5" />
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-col gap-3 p-5">
-                      <h3 className="font-serif text-xl text-chocolala-cream">
-                        {product.name[locale]}
-                      </h3>
-                      <p className="font-sans text-sm text-chocolala-cream/70">
-                        {product.description[locale]}
-                      </p>
-                      <a
-                        href={whatsappLink(
-                          t("inquiryMessage", { product: product.name[locale] }),
-                        )}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-1 inline-flex w-fit items-center rounded-full bg-chocolala-orange px-4 py-2 font-sans text-sm font-semibold text-white hover:bg-chocolala-orange/90"
+                      <div
+                        className="relative aspect-4/3 w-full cursor-zoom-in"
+                        onClick={() => product.images.length > 0 && openLightbox(product)}
                       >
-                        {t("inquireWhatsapp")}
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
+                        <ImageCarousel
+                          images={product.images}
+                          alt={product.name[locale]}
+                          className="h-full w-full"
+                          fallback={
+                            <div className="flex h-full items-center justify-center bg-chocolala-brown text-chocolala-cream/20">
+                              <WineGlassIcon className="h-12 w-12" />
+                            </div>
+                          }
+                        />
+                        {product.images.length > 0 && (
+                          <span className="pointer-events-none absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            <ExpandIcon className="h-3.5 w-3.5" />
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex flex-col gap-3 p-5">
+                        <h3 className="font-serif text-xl text-chocolala-cream">
+                          {product.name[locale]}
+                        </h3>
+                        <p className="font-sans text-sm text-chocolala-cream/70">
+                          {product.description[locale]}
+                        </p>
+                        <a
+                          href={whatsappLink(
+                            t("inquiryMessage", { product: product.name[locale] }),
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-1 inline-flex w-fit items-center rounded-full bg-chocolala-orange px-4 py-2 font-sans text-sm font-semibold text-white hover:bg-chocolala-orange/90"
+                        >
+                          {t("inquireWhatsapp")}
+                        </a>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
-        );
-      })()}
+            </section>
+          );
+        })()}
+      </div>
     </div>
   );
 }
@@ -206,8 +229,8 @@ function ChapterHeader({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ y: 20 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8 }}
       className="relative overflow-hidden bg-chocolala-brown-dark py-20 text-center"
@@ -250,8 +273,8 @@ function EditorialProduct({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 40 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`group/editorial flex min-h-[70vh] flex-col ${
@@ -285,8 +308,8 @@ function EditorialProduct({
         }`}
       >
         <motion.div
-          initial={{ opacity: 0, x: reverse ? 20 : -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ x: reverse ? 20 : -20 }}
+          whileInView={{ x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col gap-5"

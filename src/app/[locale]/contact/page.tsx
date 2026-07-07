@@ -42,8 +42,8 @@ function ContactHero({ t }: { t: ReturnType<typeof useTranslations> }) {
 
       <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-7 px-6 text-center">
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 12 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.6 }}
           className="font-sans text-sm font-semibold uppercase tracking-widest text-chocolala-orange"
         >
@@ -51,8 +51,8 @@ function ContactHero({ t }: { t: ReturnType<typeof useTranslations> }) {
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif text-6xl leading-none text-chocolala-cream sm:text-7xl lg:text-8xl"
         >
@@ -60,8 +60,8 @@ function ContactHero({ t }: { t: ReturnType<typeof useTranslations> }) {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-sm font-sans text-base text-chocolala-cream/70"
         >
@@ -72,8 +72,8 @@ function ContactHero({ t }: { t: ReturnType<typeof useTranslations> }) {
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.04 }}
           className="mt-2 inline-flex items-center gap-3 rounded-full bg-chocolala-orange px-9 py-4 font-sans text-base font-semibold text-white shadow-lg shadow-chocolala-orange/25"
@@ -190,8 +190,8 @@ function ContactMap({ t }: { t: ReturnType<typeof useTranslations> }) {
     <section>
       <div className="bg-chocolala-brown-dark px-6 py-16 text-center">
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 12 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mb-3 font-sans text-sm font-semibold uppercase tracking-widest text-chocolala-orange"
@@ -199,8 +199,8 @@ function ContactMap({ t }: { t: ReturnType<typeof useTranslations> }) {
           {t("findUs")}
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif text-4xl text-chocolala-cream sm:text-5xl"

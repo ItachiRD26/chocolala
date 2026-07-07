@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Logo from "@/components/ui/Logo";
@@ -12,10 +15,14 @@ import {
 import { SITE_INFO, whatsappLink } from "@/lib/constants";
 
 export default function Footer() {
+  const pathname = usePathname();
   const t = useTranslations("footer");
   const tHero = useTranslations("hero");
   const tNav = useTranslations("nav");
   const year = new Date().getFullYear();
+
+  // Hide footer on mobile for the catalog page (swipe catalog fills the screen)
+  const isCatalog = pathname.endsWith("/products");
 
   const links = [
     { href: "/", label: tNav("home") },
@@ -31,7 +38,11 @@ export default function Footer() {
   ] as const;
 
   return (
-    <footer className="relative overflow-hidden border-t-2 border-chocolala-orange/30 bg-[#1a0a04] text-chocolala-cream">
+    <footer
+      className={`relative overflow-hidden border-t-2 border-chocolala-orange/30 bg-[#1a0a04] text-chocolala-cream ${
+        isCatalog ? "hidden md:block" : ""
+      }`}
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-chocolala-orange/10 blur-3xl"

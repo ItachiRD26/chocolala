@@ -38,42 +38,42 @@ export default function HeroSection() {
 
       <div aria-hidden="true" className="absolute inset-0 bg-chocolala-brown-dark/75" />
 
-      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 text-center">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ scale: 0.88 }}
+          animate={{ scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <Logo
             variant="white"
-            className="h-28 drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)] sm:h-40"
+            className="h-28 drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)] sm:h-44 md:h-56 lg:h-64"
           />
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="font-serif text-xl text-chocolala-cream/90 sm:text-2xl"
+          className="font-serif text-xl text-chocolala-cream/90 sm:text-2xl md:text-3xl lg:text-4xl"
         >
           {t("slogan")}
         </motion.h1>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           className="mt-4 flex flex-col gap-4 font-sans sm:flex-row"
         >
           <Link
             href="/products"
-            className="rounded-full bg-chocolala-orange px-8 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
+            className="rounded-full bg-chocolala-orange px-8 py-3 text-sm font-semibold text-white transition-transform hover:scale-105 md:px-10 md:py-4 md:text-base"
           >
             {t("ctaProducts")}
           </Link>
           <Link
             href="/contact"
-            className="rounded-full border border-chocolala-cream/40 px-8 py-3 text-sm font-semibold text-chocolala-cream transition-colors hover:border-chocolala-cream hover:bg-chocolala-cream/10"
+            className="rounded-full border border-chocolala-cream/40 px-8 py-3 text-sm font-semibold text-chocolala-cream transition-colors hover:border-chocolala-cream hover:bg-chocolala-cream/10 md:px-10 md:py-4 md:text-base"
           >
             {t("ctaTours")}
           </Link>

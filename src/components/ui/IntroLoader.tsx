@@ -1,109 +1,218 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
 import Logo from "@/components/ui/Logo";
 
-const WAVE_PATH =
-  "M0,20 Q25,5 50,20 T100,20 T150,20 T200,20 T250,20 T300,20 T350,20 T400,20 V60 H0 Z";
+// Module-level flag: survives re-renders and client-side navigations
+// (layout remounts), but resets on full page reload — correct behavior.
+let loaderShown = false;
 
-const TOTAL_HOLD_MS = 2100;
+/*
+  El problema de los timers: en React 18 Strict Mode (desarrollo), useEffect
+  se ejecuta dos veces (mount → cleanup → mount). El cleanup clearTimeout()
+  cancela los timers del primer mount, y si algo causa un remount, el ciclo
+  se repite indefinidamente.
 
-type WaveLayerProps = {
-  fill: string;
-  opacityClass: string;
-  duration: number;
-  heightClass: string;
-  bobDuration: number;
-};
+  Solución: usar CSS animation con animation-delay para manejar el timing.
+  Las animaciones CSS son inmunes al ciclo de vida de React — el browser
+  las corre en su propia thread. onAnimationEnd dispara el dismiss final.
+*/
 
-function WaveLayer({ fill, opacityClass, duration, heightClass, bobDuration }: WaveLayerProps) {
-  return (
-    <motion.div
-      className={`absolute bottom-0 left-0 w-full ${heightClass}`}
-      animate={{ y: [0, -6, 0] }}
-      transition={{ duration: bobDuration, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <motion.svg
-        aria-hidden="true"
-        viewBox="0 0 400 60"
-        preserveAspectRatio="none"
-        className={`h-full w-[200%] ${opacityClass}`}
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration, repeat: Infinity, ease: "linear" }}
-      >
-        <path d={WAVE_PATH} fill={fill} />
-      </motion.svg>
-    </motion.div>
-  );
-}
+const SHOW_MS = 2800; // ms visibles antes de empezar a desvanecerse
+const FADE_MS = 750;  // duración del fade-out
+
+const COPY = {
+  es: {
+    slogan: "Poca espuma, mucho chocolate.",
+    sub: "Cacao artesanal · República Dominicana",
+  },
+  en: {
+    slogan: "Less foam, more chocolate.",
+    sub: "Artisan cacao · Dominican Republic",
+  },
+} as const;
 
 export default function IntroLoader() {
-  const [loading, setLoading] = useState(true);
+  const locale = useLocale() as "es" | "en";
+  const copy = COPY[locale] ?? COPY.es;
+  // Start already-gone if loader was shown before in this session
+  const [gone, setGone] = useState(loaderShown);
 
+  // Lock scroll only on first show — guard prevents re-locking on remounts
+  // (without guard: layout remounts set overflow:hidden but onAnimationEnd
+  //  never fires → overflow stays hidden → Android Chrome swallows tap events)
   useEffect(() => {
+    if (loaderShown) return;
+
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.overscrollBehavior = "none";
     document.body.style.overflow = "hidden";
-    const timer = setTimeout(() => {
-      setLoading(false);
+    document.body.style.overscrollBehavior = "none";
+
+    // Fallback: force-dismiss if onAnimationEnd never fires on device
+    const fallback = setTimeout(() => {
+      if (loaderShown) return;
+      loaderShown = true;
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.overscrollBehavior = "";
       document.body.style.overflow = "";
-    }, TOTAL_HOLD_MS);
+      document.body.style.overscrollBehavior = "";
+      setGone(true);
+    }, SHOW_MS + FADE_MS + 500);
+
     return () => {
-      clearTimeout(timer);
+      clearTimeout(fallback);
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.overscrollBehavior = "";
       document.body.style.overflow = "";
+      document.body.style.overscrollBehavior = "";
     };
   }, []);
 
+  if (gone) return null;
+
   return (
-    <AnimatePresence>
-      {loading && (
-        <motion.div
-          className="fixed inset-0 z-100 overflow-hidden bg-chocolala-brown"
-          exit={{ opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }}
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        backgroundColor: "#170804",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        // Never intercept pointer events — loader is visual-only.
+        // CSS `pointer-events` is not animatable, so `pointer-events:none`
+        // inside @keyframes is unreliable. Static style is the safe approach.
+        pointerEvents: "none",
+        animation: `loader-exit ${FADE_MS}ms ease ${SHOW_MS}ms forwards`,
+      }}
+      onAnimationEnd={(e) => {
+        if (e.animationName !== "loader-exit") return;
+        loaderShown = true;
+        document.documentElement.style.overflow = "";
+        document.documentElement.style.overscrollBehavior = "";
+        document.body.style.overflow = "";
+        document.body.style.overscrollBehavior = "";
+        setGone(true);
+      }}
+    >
+      {/* Video — no filter/transform (iOS GPU compositing bug) */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      >
+        <source src="/videos/loader.webm" type="video/webm" />
+      </video>
+
+      {/* Dark overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(23,8,4,0.68)",
+        }}
+      />
+
+      {/* Radial vignette */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 70% 70% at 50% 50%, transparent 35%, rgba(23,8,4,0.65) 100%)",
+        }}
+      />
+
+      {/* Content — explicit z-index, fully visible from frame 1 */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+          padding: "0 24px",
+          textAlign: "center",
+        }}
+      >
+        <div
+          style={{
+            filter:
+              "drop-shadow(0 0 48px rgba(242,115,76,0.28)) drop-shadow(0 2px 16px rgba(0,0,0,0.6))",
+          }}
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-chocolala-orange/10 blur-3xl"
-          />
+          <Logo variant="white" className="h-36 w-auto sm:h-48 md:h-56" />
+        </div>
 
-          <div className="absolute inset-x-0 bottom-0 h-3/4">
-            <WaveLayer
-              fill="#7a3e1d"
-              opacityClass="opacity-40"
-              duration={8}
-              bobDuration={4.5}
-              heightClass="h-full"
-            />
-            <WaveLayer
-              fill="#5c2c12"
-              opacityClass="opacity-75"
-              duration={5.5}
-              bobDuration={3.6}
-              heightClass="h-[80%]"
-            />
-            <WaveLayer
-              fill="#2e160b"
-              opacityClass="opacity-100"
-              duration={3.6}
-              bobDuration={2.8}
-              heightClass="h-[58%]"
-            />
-          </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          <p
+            style={{
+              fontFamily: "Georgia, Constantia, serif",
+              fontSize: "clamp(0.95rem, 3vw, 1.2rem)",
+              fontStyle: "italic",
+              color: "rgba(253,246,239,0.82)",
+              margin: 0,
+              lineHeight: 1.4,
+            }}
+          >
+            {copy.slogan}
+          </p>
+          <p
+            style={{
+              fontFamily: "Arial, Helvetica, sans-serif",
+              fontSize: "0.65rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.32em",
+              color: "rgba(242,115,76,0.82)",
+              margin: 0,
+            }}
+          >
+            {copy.sub}
+          </p>
+        </div>
 
-          <div className="relative z-10 flex h-full items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-            >
-              <Logo
-                variant="white"
-                className="h-48 drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] sm:h-72"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        {/* Loading dots */}
+        <div style={{ display: "flex", gap: "6px" }}>
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              style={{
+                display: "block",
+                width: "6px",
+                height: "6px",
+                borderRadius: "50%",
+                backgroundColor: "rgba(253,246,239,0.55)",
+                animation: `choc-blink 1.4s ${i * 0.22}s ease-in-out infinite`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes loader-exit {
+          to { opacity: 0; }
+        }
+        @keyframes choc-blink {
+          0%, 75%, 100% { opacity: 0.18; transform: scale(0.75); }
+          37%           { opacity: 1;    transform: scale(1.2);  }
+        }
+      `}</style>
+    </div>
   );
 }

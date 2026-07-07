@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Chocolala | Fábrica de Chocolate Artesanal",
   description:
     "Productos auténticos derivados del cacao dominicano. Poca espuma, mucho chocolate.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export function generateStaticParams() {

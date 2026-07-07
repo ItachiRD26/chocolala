@@ -41,16 +41,16 @@ function AboutHero() {
       />
       <div className="relative mx-auto max-w-3xl">
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 12 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-4 font-sans text-sm font-semibold uppercase tracking-widest text-chocolala-orange"
         >
           Chocolala RD
         </motion.p>
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="font-serif text-5xl leading-tight text-chocolala-cream sm:text-6xl"
         >
@@ -67,8 +67,8 @@ function HistorySection() {
   return (
     <div className="grid min-h-[60vh] items-center gap-0 md:grid-cols-2">
       <motion.div
-        initial={{ opacity: 0, scale: 1.05 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ scale: 1.05 }}
+        whileInView={{ scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         className="relative h-72 overflow-hidden md:h-full"
@@ -86,8 +86,8 @@ function HistorySection() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ x: 40 }}
+        whileInView={{ x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         className="flex flex-col items-start gap-5 px-8 py-16 md:px-14"
@@ -114,8 +114,8 @@ function MissionVisionSection() {
   return (
     <div className="grid min-h-[50vh] md:grid-cols-2">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 40 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="flex flex-col justify-center gap-5 bg-chocolala-brown-light px-10 py-16"
@@ -129,8 +129,8 @@ function MissionVisionSection() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 40 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         className="flex flex-col justify-center gap-5 bg-chocolala-orange px-10 py-16"
@@ -153,8 +153,8 @@ function ValuesSection() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 30 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
         className="mb-12 text-center"
@@ -204,8 +204,8 @@ function TeamSection() {
     <div className="bg-chocolala-brown-dark py-20">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
           className="mb-14 text-center"
@@ -225,8 +225,8 @@ function TeamSection() {
           {members.map((member, i) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 30, rotate: i % 2 === 0 ? -3 : 3 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 30, rotate: i % 2 === 0 ? -3 : 3 }}
+              whileInView={{ y: 0 }}
               whileHover={{ rotate: 0, y: -6, scale: 1.03 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}

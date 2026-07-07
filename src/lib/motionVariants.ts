@@ -6,6 +6,6 @@ export const staggerContainer: Variants = {
 };
 
 export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { y: 20 },
+  show: { y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };

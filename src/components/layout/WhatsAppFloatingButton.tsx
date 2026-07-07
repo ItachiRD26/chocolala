@@ -12,7 +12,7 @@ export default function WhatsAppFloatingButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("label")}
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 animate-pulse items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform hover:scale-110 hover:animate-none"
+      className="fixed bottom-6 right-6 z-50 hidden h-14 w-14 animate-pulse items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform hover:scale-110 hover:animate-none md:flex"
     >
       <svg
         viewBox="0 0 24 24"
