@@ -221,38 +221,33 @@ function TeamSection() {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
+        <div className="flex flex-wrap justify-center gap-6">
           {members.map((member, i) => (
             <motion.div
               key={member.name}
-              initial={{ y: 30, rotate: i % 2 === 0 ? -3 : 3 }}
+              initial={{ y: 30 }}
               whileInView={{ y: 0 }}
-              whileHover={{ rotate: 0, y: -6, scale: 1.03 }}
+              whileHover={{ y: -8 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              className="flex w-44 flex-col items-center gap-3"
+              className="group flex w-[calc(50%-12px)] flex-col gap-4 sm:w-56"
             >
-              <div className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-2 rounded-full border border-dashed border-chocolala-orange/30"
+              <div className="relative aspect-3/4 overflow-hidden rounded-2xl ring-1 ring-chocolala-orange/20">
+                <Image
+                  src={`/images/${member.image}.webp`}
+                  alt={member.name}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ objectPosition: "50% 20%" }}
                 />
-                <div className="relative h-32 w-32 overflow-hidden rounded-full shadow-lg ring-2 ring-chocolala-orange/20">
-                  <Image
-                    src={`/images/${member.image}.webp`}
-                    alt={member.name}
-                    fill
-                    sizes="128px"
-                    className="object-cover"
-                    style={{ objectPosition: "50% 20%" }}
-                  />
-                </div>
+                <div className="absolute inset-0 bg-linear-to-t from-chocolala-brown-dark/75 via-transparent to-transparent" />
               </div>
-              <div className="text-center">
-                <p className="font-serif text-base text-chocolala-cream">
+              <div>
+                <p className="font-serif text-lg leading-tight text-chocolala-cream">
                   {member.name}
                 </p>
-                <p className="font-sans text-xs text-chocolala-orange/80">
+                <p className="mt-1 font-sans text-xs font-semibold uppercase tracking-wider text-chocolala-orange/75">
                   {member.role}
                 </p>
               </div>

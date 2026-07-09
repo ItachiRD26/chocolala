@@ -1,5 +1,6 @@
 import { config } from "dotenv";
 import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
   collection,
   deleteDoc,
@@ -30,6 +31,7 @@ if (!firebaseConfig.projectId) {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 async function clearCollection(name: string) {
   const snapshot = await getDocs(collection(db, name));
@@ -37,6 +39,15 @@ async function clearCollection(name: string) {
 }
 
 async function seed() {
+  const email = process.env.SEED_EMAIL;
+  const password = process.env.SEED_PASSWORD;
+  if (!email || !password) {
+    console.error("Agrega SEED_EMAIL y SEED_PASSWORD en .env.local");
+    process.exit(1);
+  }
+  console.log(`Autenticando como ${email}...`);
+  await signInWithEmailAndPassword(auth, email, password);
+
   console.log("Sembrando categorías...");
   for (const category of categories) {
     const ref = doc(collection(db, "categories"), category.slug);

@@ -77,8 +77,10 @@ export default function MobileCatalogSwipe({
     document.body.style.overscrollBehavior = "";
   }, []);
 
-  /* lock while catalog is mounted so footer is unreachable */
+  /* lock while catalog is mounted so footer is unreachable.
+     Guard: component is md:hidden but still mounted on desktop — skip lock there. */
   useEffect(() => {
+    if (window.matchMedia("(min-width: 768px)").matches) return;
     lockScroll();
     return unlockScroll;
   }, [lockScroll, unlockScroll]);

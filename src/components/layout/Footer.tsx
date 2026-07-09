@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Logo from "@/components/ui/Logo";
-import AnimatedSection from "@/components/ui/AnimatedSection";
 import {
   PhoneIcon,
   InstagramIcon,
@@ -21,7 +20,6 @@ export default function Footer() {
   const tNav = useTranslations("nav");
   const year = new Date().getFullYear();
 
-  // Hide footer on mobile for the catalog page (swipe catalog fills the screen)
   const isCatalog = pathname.endsWith("/products");
 
   const links = [
@@ -39,88 +37,98 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative overflow-hidden border-t-2 border-chocolala-orange/30 bg-[#1a0a04] text-chocolala-cream ${
+      className={`relative overflow-hidden border-t-2 border-chocolala-orange/40 bg-[#100502] text-chocolala-cream ${
         isCatalog ? "hidden md:block" : ""
       }`}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-chocolala-orange/10 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-chocolala-orange/8 blur-3xl"
-      />
+      {/* Warm glows */}
+      <div aria-hidden className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-chocolala-orange/7 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -left-32 bottom-10 h-80 w-80 rounded-full bg-chocolala-orange/5 blur-3xl" />
 
-      <AnimatedSection className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 pt-16 pb-12 lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex max-w-xs flex-col items-center gap-4 text-center lg:items-start lg:text-left">
-          <Logo variant="white" className="h-20 w-auto sm:h-24" />
-          <p className="font-serif text-base italic text-chocolala-orange/90">
-            {tHero("slogan")}
-          </p>
-          <p className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
-            <PinIcon className="mt-0.5 h-5 w-5 shrink-0" />
-            {t("address")}
-          </p>
-        </div>
+      {/* ── Slogan banner ──────────────────────────────────────────── */}
+      <div className="relative border-b border-chocolala-cream/8 px-6 py-14 text-center">
+        <p className="font-serif text-3xl italic leading-snug text-chocolala-orange sm:text-4xl lg:text-5xl">
+          &ldquo;{tHero("slogan")}&rdquo;
+        </p>
+        <p className="mt-4 font-sans text-xs font-semibold uppercase tracking-[0.35em] text-chocolala-cream/25">
+          Cacao Artesanal · Altamira, Puerto Plata · República Dominicana
+        </p>
+      </div>
 
-        <div className="grid grid-cols-2 gap-x-12 gap-y-10 sm:grid-cols-3 sm:gap-x-16">
-          <div className="flex flex-col gap-3">
-            <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-chocolala-orange">
+      {/* ── Main grid ─────────────────────────────────────────────── */}
+      <div className="relative mx-auto max-w-6xl px-6 pb-14 pt-12">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8 lg:gap-16">
+
+          {/* Brand column */}
+          <div className="col-span-2 flex flex-col gap-5 sm:col-span-1">
+            <Logo variant="white" className="h-14 w-auto" />
+            <p className="flex items-start gap-2.5 font-sans text-sm leading-relaxed text-chocolala-cream/50">
+              <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-chocolala-orange/60" />
+              {t("address")}
+            </p>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-col gap-2.5">
+            <h3 className="mb-2 font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-chocolala-orange">
               {t("linksTitle")}
             </h3>
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="w-fit font-sans text-sm text-chocolala-cream/80 transition-colors hover:text-chocolala-orange"
+                className="w-fit font-sans text-sm text-chocolala-cream/60 transition-colors hover:text-chocolala-orange"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <div className="flex flex-col gap-3">
-            <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-chocolala-orange">
+          {/* Contact */}
+          <div className="flex flex-col gap-2.5">
+            <h3 className="mb-2 font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-chocolala-orange">
               {t("contactTitle")}
             </h3>
             <a
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-fit items-center gap-2 font-sans text-sm text-chocolala-cream/80 transition-colors hover:text-chocolala-orange"
+              className="flex w-fit items-center gap-2 font-sans text-sm text-chocolala-cream/60 transition-colors hover:text-chocolala-orange"
             >
-              <PhoneIcon className="h-4 w-4" />
+              <PhoneIcon className="h-3.5 w-3.5 shrink-0" />
               {SITE_INFO.phone.cel}
             </a>
-            <p className="font-sans text-sm text-chocolala-cream/80">
+            <p className="flex items-center gap-2 font-sans text-sm text-chocolala-cream/60">
+              <PhoneIcon className="h-3.5 w-3.5 shrink-0 opacity-0" />
               {SITE_INFO.phone.fijo}
             </p>
           </div>
 
-          <div className="col-span-2 flex flex-col gap-3 sm:col-span-1">
-            <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-chocolala-orange">
+          {/* Socials */}
+          <div className="flex flex-col gap-2.5">
+            <h3 className="mb-2 font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-chocolala-orange">
               {t("followTitle")}
             </h3>
-            <div className="flex gap-3">
-              {socials.map(({ href, label, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-chocolala-cream/10 text-chocolala-cream transition-colors hover:bg-chocolala-orange hover:text-white"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+            {socials.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-fit items-center gap-3 font-sans text-sm text-chocolala-cream/60 transition-colors hover:text-chocolala-orange"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-chocolala-cream/8 transition-colors group-hover:bg-chocolala-orange/20">
+                  <Icon className="h-4 w-4" />
+                </span>
+                {label}
+              </a>
+            ))}
           </div>
         </div>
-      </AnimatedSection>
+      </div>
 
-      <div className="relative border-t border-chocolala-cream/10 px-6 py-5 text-center font-sans text-xs text-chocolala-cream/60">
+      {/* ── Copyright ─────────────────────────────────────────────── */}
+      <div className="border-t border-chocolala-cream/8 px-6 py-5 text-center font-sans text-xs text-chocolala-cream/30">
         © {year} Chocolala RD. {t("rights")}
       </div>
     </footer>

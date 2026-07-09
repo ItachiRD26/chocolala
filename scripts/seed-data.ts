@@ -29,6 +29,7 @@ export type SeedTour = {
 };
 
 const c = "/catalog/chocolate/";
+const v = "/catalog/vinos/";
 
 export const categories: SeedCategory[] = [
   {
@@ -310,7 +311,7 @@ export const products: SeedProduct[] = [
     order: 4,
   },
 
-  // ── VINOS ARTESANALES (imágenes pendientes) ───────────────────────────────
+  // ── VINOS ARTESANALES ────────────────────────────────────────────────────
   {
     name: { es: "Sangría de Naranja y Manzana Verde", en: "Orange & Green Apple Sangría" },
     description: {
@@ -318,7 +319,16 @@ export const products: SeedProduct[] = [
       en: "Artisanal sangría made with orange and green apple. Crafted from fresh fruits grown in our own community. A young wine, no added alcohol. A sip that connects tradition, flavor, and nature.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}SANGRIA FOTO (1).webp`,
+      `${v}SANGRIA FOTO (2).webp`,
+      `${v}sangriaaa.webp`,
+      `${v}MISMA FOTO SANGRIA CHINOLA.webp`,
+      `${v}MISMA SANGRIA Y CHINOLA.webp`,
+      `${v}sangria y chinola.webp`,
+      `${v}FOTO PERFECTA PARA UN HERO O ALGO ASI ES UN VINO EN UN COLUMPIO.webp`,
+      `${v}PERSONA CON VINO 1.webp`,
+    ],
     featured: false,
     active: true,
     order: 0,
@@ -330,7 +340,15 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with cacao from our community. Fresh natural fruit, no added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}CACAO.webp`,
+      `${v}CACAO1.webp`,
+      `${v}CACAO3.webp`,
+      `${v}cacaooooo.webp`,
+      `${v}PERSONAS CON VINOS (1).webp`,
+      `${v}PERSONAS VINO.webp`,
+      `${v}PERSONAS CON VINO.webp`,
+    ],
     featured: false,
     active: true,
     order: 1,
@@ -342,7 +360,14 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with fresh jagua from the community. No added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}JAGUA.webp`,
+      `${v}jaguaaaa.webp`,
+      `${v}juguaccerezasangria.webp`,
+      `${v}MISMA FOTO JUGUA CEREZA SANGRIA.webp`,
+      `${v}PERSONAS CON VINOS (2).webp`,
+      `${v}PERSONAS VINO2.webp`,
+    ],
     featured: false,
     active: true,
     order: 2,
@@ -354,7 +379,15 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with fresh cherry from the community. No added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}MISMAFOTO CEREZA JAGUA SANGRIA.webp`,
+      `${v}MISMAFOTO CEREZA JAGUA SANGRIA 2.webp`,
+      `${v}PERSONA CON VINO 4.webp`,
+      `${v}PERSONA VINO.webp`,
+      `${v}PERSONAS CON VINOS (3).webp`,
+      `${v}PERSONAS VINO (1).webp`,
+      `${v}PERSONAS VINO3.webp`,
+    ],
     featured: false,
     active: true,
     order: 3,
@@ -366,7 +399,14 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with fresh passion fruit (chinola) from the community. No added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}CHINOLA.webp`,
+      `${v}CHINOLA2.webp`,
+      `${v}chinolaaa.webp`,
+      `${v}PERSONAS CON VINOS (4).webp`,
+      `${v}PERSONAS VINO (2).webp`,
+      `${v}PERSONAS VINO4.webp`,
+    ],
     featured: false,
     active: true,
     order: 4,
@@ -378,7 +418,14 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with fresh cranberry. No added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}CAMBERRY.webp`,
+      `${v}CAMBERRY2.webp`,
+      `${v}CRAMBERRY.webp`,
+      `${v}PERSONAS CON VINOS (5).webp`,
+      `${v}PERSONAS VINO (3).webp`,
+      `${v}parejavinos.webp`,
+    ],
     featured: false,
     active: true,
     order: 5,
@@ -390,7 +437,14 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with fresh dragon fruit (pitahaya) from the community. No added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}PITAYA.webp`,
+      `${v}PITAYA2.webp`,
+      `${v}PITAYA3.webp`,
+      `${v}PERSONAS CON VINOS (6).webp`,
+      `${v}PERSONAS VINO (4).webp`,
+      `${v}parejavinoss.webp`,
+    ],
     featured: false,
     active: true,
     order: 6,
@@ -402,7 +456,16 @@ export const products: SeedProduct[] = [
       en: "Artisanal wine made with fresh starfruit (carambola) from the community. No added alcohol.",
     },
     category: "vinos",
-    images: [],
+    images: [
+      `${v}CARAMBOLA.webp`,
+      `${v}CARAMBOLA4.webp`,
+      `${v}CARAMBOLA5.webp`,
+      `${v}CARABOLAPIYAYAMISMAFOTO.webp`,
+      `${v}CARAMBOLAPITAYAMISMAFOTO2.webp`,
+      `${v}PERSONAS CON VINOS (7).webp`,
+      `${v}PERSONAS VINO (5).webp`,
+      `${v}PERSONAS VINO (6).webp`,
+    ],
     featured: false,
     active: true,
     order: 7,
