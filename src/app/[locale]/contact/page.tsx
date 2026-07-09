@@ -29,7 +29,7 @@ function ContactHero({ t }: { t: ReturnType<typeof useTranslations> }) {
   return (
     <section className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden text-chocolala-cream">
       <Image
-        src="/catalog/chocolate/CHOCOLATE BLANCO CON SABOR A NARANJA (3).webp"
+        src="/catalog/chocolate/chocolate-blanco-con-sabor-a-naranja-3.webp"
         alt=""
         fill
         priority

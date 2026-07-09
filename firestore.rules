@@ -1,21 +1,26 @@
 rules_version = '2';
+
+// SECURITY: writes are restricted to authenticated + email-verified accounts only.
+// TODO: upgrade to custom claims — set `admin: true` via Firebase Admin SDK on
+// your admin account, then change the write condition to:
+//   request.auth.token.admin == true
 service cloud.firestore {
   match /databases/{database}/documents {
     match /categories/{categoryId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.email_verified == true;
     }
     match /products/{productId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.email_verified == true;
     }
     match /tours/{tourId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.email_verified == true;
     }
     match /settings/{docId} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if request.auth != null && request.auth.token.email_verified == true;
     }
   }
 }

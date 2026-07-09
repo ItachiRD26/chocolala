@@ -48,6 +48,9 @@ async function seed() {
   console.log(`Autenticando como ${email}...`);
   await signInWithEmailAndPassword(auth, email, password);
 
+  console.log("Limpiando categorías existentes...");
+  await clearCollection("categories");
+
   console.log("Sembrando categorías...");
   for (const category of categories) {
     const ref = doc(collection(db, "categories"), category.slug);

@@ -78,11 +78,21 @@ export default function MobileCatalogSwipe({
   }, []);
 
   /* lock while catalog is mounted so footer is unreachable.
-     Guard: component is md:hidden but still mounted on desktop — skip lock there. */
+     Guard: component is md:hidden but still mounted on desktop — skip lock there.
+     MediaQueryList listener handles resize crossing the breakpoint. */
   useEffect(() => {
-    if (window.matchMedia("(min-width: 768px)").matches) return;
+    const mq = window.matchMedia("(min-width: 768px)");
+    if (mq.matches) return;
     lockScroll();
-    return unlockScroll;
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) unlockScroll();
+      else lockScroll();
+    };
+    mq.addEventListener("change", onChange);
+    return () => {
+      mq.removeEventListener("change", onChange);
+      unlockScroll();
+    };
   }, [lockScroll, unlockScroll]);
 
   const openSheet = (s: Sheet) => {

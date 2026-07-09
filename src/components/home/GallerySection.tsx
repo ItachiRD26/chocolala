@@ -9,12 +9,12 @@ import { staggerContainer, staggerItem } from "@/lib/motionVariants";
 const BLUR_PLACEHOLDER = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII=";
 
 const GALLERY_IMAGES = [
-  "/catalog/chocolate/CHOCOLATE70 (1).webp",
-  "/catalog/chocolate/CHOCOLATE70-DIFERENTES VIEWS (1).webp",
-  "/catalog/chocolate/CHOCOLATE BLANCO CON SABOR A NARANJA (1).webp",
-  "/catalog/chocolate/CHOCOLATE DE TAZA O MESA (1).webp",
-  "/catalog/chocolate/MANTECA DE CACAO (1).webp",
-  "/catalog/chocolate/LABIAL DE CACAO (1).webp",
+  "/catalog/chocolate/chocolate70-1.webp",
+  "/catalog/chocolate/chocolate70-diferentes-views-1.webp",
+  "/catalog/chocolate/chocolate-blanco-con-sabor-a-naranja-1.webp",
+  "/catalog/chocolate/chocolate-de-taza-o-mesa-1.webp",
+  "/catalog/chocolate/manteca-de-cacao-1.webp",
+  "/catalog/chocolate/labial-de-cacao-1.webp",
 ];
 
 export default function GallerySection() {

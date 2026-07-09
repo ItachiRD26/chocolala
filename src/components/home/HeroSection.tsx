@@ -14,8 +14,8 @@ export default function HeroSection() {
       {/* Mobile: static image */}
       <div className="absolute inset-0 md:hidden">
         <Image
-          src="/catalog/chocolate/CHOCOLATE70 (3).webp"
-          alt=""
+          src="/catalog/chocolate/chocolate70-3.webp"
+          alt="Tableta de chocolate artesanal 70% cacao Chocolala RD"
           fill
           priority
           sizes="(max-width: 767px) 100vw, 0px"

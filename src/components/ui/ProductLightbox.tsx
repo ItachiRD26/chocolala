@@ -23,8 +23,13 @@ export default function ProductLightbox({ product, onClose }: Props) {
   }, [product, onClose]);
 
   useEffect(() => {
-    document.body.style.overflow = product ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const val = product ? "hidden" : "";
+    document.documentElement.style.overflow = val;
+    document.body.style.overflow = val;
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
   }, [product]);
 
   return (
@@ -35,7 +40,7 @@ export default function ProductLightbox({ product, onClose }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[300] flex items-center justify-center bg-black/92 p-4 md:p-8"
+          className="fixed inset-0 z-300 flex items-center justify-center bg-black/92 p-4 md:p-8"
           onClick={onClose}
         >
           <motion.div
