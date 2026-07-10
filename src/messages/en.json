@@ -77,12 +77,12 @@
     "valuesTitle": "Our Values",
     "valuesHeading": "What defines us",
     "values": [
-      "Honesty",
-      "Commitment",
-      "Solidarity",
-      "Empathy",
-      "Integrity",
-      "Teamwork"
+      { "name": "Honesty",   "phrase": "What goes into our chocolate goes into our word." },
+      { "name": "Commitment","phrase": "Every bar is a promise kept." },
+      { "name": "Solidarity","phrase": "We grow together or not at all." },
+      { "name": "Empathy",   "phrase": "We make chocolate with the recipient in mind." },
+      { "name": "Integrity", "phrase": "No shortcuts — not in the recipe, not in business." },
+      { "name": "Teamwork",  "phrase": "Many hands made this chocolate." }
     ],
     "team": {
       "eyebrow": "The hands behind the chocolate",

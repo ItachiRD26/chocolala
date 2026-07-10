@@ -12,6 +12,7 @@ export type SeedProduct = {
   category: string;
   images: string[];
   price?: LocalizedText;
+  whatsappMessage?: LocalizedText;
   featured: boolean;
   active: boolean;
   order: number;
@@ -77,14 +78,14 @@ export const products: SeedProduct[] = [
       `${c}chocolate70-1.webp`,
       `${c}chocolate70-2.webp`,
       `${c}chocolate70-3.webp`,
-      `${c}chicas-posando-con-chocolate-1.webp`,
-      `${c}chicas-posando-con-chocolate-2.webp`,
-      `${c}chicas-posando-con-chocolate-3.webp`,
-      `${c}chicas-posando-con-chocolate-4.webp`,
       `${c}chocolate70-diferentes-views-1.webp`,
       `${c}chocolate70-diferentes-views-2.webp`,
       `${c}chocolate70-muestras-1.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Chocolate 70% Cacao de Chocolala. ¿Cuáles son las presentaciones disponibles y el precio?",
+      en: "Hi! I'm interested in Chocolala's 70% Cacao Dark Chocolate. What sizes are available and what's the price?",
+    },
     featured: true,
     active: true,
     order: 0,
@@ -107,6 +108,10 @@ export const products: SeedProduct[] = [
       `${c}chocolate-blanco-con-sabor-a-naranja-muestras-2.webp`,
       `${c}chocolate-blanco-con-sabor-a-naranja-muestras-3.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Chocolate Blanco con Sabor a Naranja de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's White Chocolate with Orange Flavor. Is it available and what's the price?",
+    },
     featured: true,
     active: true,
     order: 1,
@@ -129,6 +134,10 @@ export const products: SeedProduct[] = [
       `${c}chocolate-de-taza-o-mesa-5.webp`,
       `${c}chocolate-de-taza-o-mesa-6.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Chocolate en Barras para Chocolate de Mesa de Chocolala. ¿Cómo se vende el paquete y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Traditional Hot Chocolate Bars. How is the package sold and what's the price?",
+    },
     featured: true,
     active: true,
     order: 2,
@@ -143,6 +152,10 @@ export const products: SeedProduct[] = [
     },
     category: "cacao",
     images: [], // Imágenes pendientes — el cliente las tomará
+    whatsappMessage: {
+      es: "¡Hola! Me interesan las Bolas de Cacao Natural de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Natural Cacao Balls. Are they available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 0,
@@ -162,6 +175,10 @@ export const products: SeedProduct[] = [
       `${c}manteca-de-cacao-5.webp`,
       `${c}manteca-de-cacao-6.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa la Manteca de Cacao de Chocolala. ¿Qué presentaciones manejan y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Cacao Butter. What sizes do you have and what's the price?",
+    },
     featured: true,
     active: true,
     order: 1,
@@ -179,6 +196,10 @@ export const products: SeedProduct[] = [
     },
     category: "snacks",
     images: [], // Imágenes pendientes — el cliente las tomará
+    whatsappMessage: {
+      es: "¡Hola! Me interesan los Granos de Cacao con Jengibre de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Chocolate-Covered Cacao Beans with Ginger. Are they available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 0,
@@ -194,6 +215,10 @@ export const products: SeedProduct[] = [
     },
     category: "snacks",
     images: [], // Imágenes pendientes — el cliente las tomará
+    whatsappMessage: {
+      es: "¡Hola! Me interesan los Granos de Cacao sin Jengibre de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Chocolate-Covered Cacao Beans without Ginger. Are they available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 1,
@@ -215,6 +240,10 @@ export const products: SeedProduct[] = [
       `${c}labial-de-cacao-con-modelo-de-chica-2.webp`,
       `${c}labial-de-cacao-con-modelo-de-chica-3.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Bálsamo para Labios de cacao de Chocolala. ¿Qué presentaciones tienen y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Cacao Lip Balm. What options do you have and what's the price?",
+    },
     featured: true,
     active: true,
     order: 0,
@@ -237,6 +266,10 @@ export const products: SeedProduct[] = [
       `${c}aceite-de-coco-5.webp`,
       `${c}aceite-de-coco-6.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Aceite de Coco de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Coconut Oil. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 0,
@@ -252,6 +285,10 @@ export const products: SeedProduct[] = [
       `${c}crema-de-cacao-1.webp`,
       `${c}crema-de-cacao-2.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa la Crema de Cacao de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Cacao Cream. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 1,
@@ -271,6 +308,10 @@ export const products: SeedProduct[] = [
       `${c}extracto-miel-vinagre-1.webp`,
       `${c}extracto-miel-vinagre-2.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Extracto de Vainilla artesanal de Chocolala. ¿Qué presentaciones tienen y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Vanilla Extract. What sizes do you offer and what's the price?",
+    },
     featured: false,
     active: true,
     order: 2,
@@ -287,6 +328,10 @@ export const products: SeedProduct[] = [
       `${c}miel-1.webp`,
       `${c}miel-2.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa la Miel de Abeja natural de Chocolala. ¿Qué tamaños tienen y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's natural Honey. What sizes do you offer and what's the price?",
+    },
     featured: false,
     active: true,
     order: 3,
@@ -306,6 +351,10 @@ export const products: SeedProduct[] = [
       `${c}vinagre-natural-2.webp`,
       `${c}vinagre-natural-3.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vinagre Natural artesanal de Chocolala. ¿Qué presentaciones tienen y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Natural Vinegar. What sizes do you offer and what's the price?",
+    },
     featured: false,
     active: true,
     order: 4,
@@ -313,7 +362,7 @@ export const products: SeedProduct[] = [
 
   // ── VINOS ARTESANALES ────────────────────────────────────────────────────
   {
-    name: { es: "Sangría de Naranja y Manzana Verde", en: "Orange & Green Apple Sangría" },
+    name: { es: "Sangría Artesanal", en: "Artisanal Sangría" },
     description: {
       es: "Sangría artesanal elaborada con naranja y manzana verde. Hecha con frutas naturales de la propia comunidad. Vino joven, sin alcohol agregado. Un sorbo que conecta tradición, sabor y naturaleza.",
       en: "Artisanal sangría made with orange and green apple. Crafted from fresh fruits grown in our own community. A young wine, no added alcohol. A sip that connects tradition, flavor, and nature.",
@@ -324,11 +373,13 @@ export const products: SeedProduct[] = [
       `${v}sangria-foto-2.webp`,
       `${v}sangriaaa.webp`,
       `${v}misma-foto-sangria-chinola.webp`,
-      `${v}misma-sangria-y-chinola.webp`,
-      `${v}sangria-y-chinola.webp`,
       `${v}foto-perfecta-para-un-hero-o-algo-asi-es-un-vino-en-un-columpio.webp`,
       `${v}persona-con-vino-1.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa la Sangría Artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's Artisanal Sangría. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 0,
@@ -346,9 +397,11 @@ export const products: SeedProduct[] = [
       `${v}cacao3.webp`,
       `${v}cacaooooo.webp`,
       `${v}personas-con-vinos-1.webp`,
-      `${v}personas-vino.webp`,
-      `${v}personas-con-vino.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Cacao artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Cacao Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 1,
@@ -364,10 +417,12 @@ export const products: SeedProduct[] = [
       `${v}jagua.webp`,
       `${v}jaguaaaa.webp`,
       `${v}juguaccerezasangria.webp`,
-      `${v}misma-foto-jugua-cereza-sangria.webp`,
       `${v}personas-con-vinos-2.webp`,
-      `${v}personas-vino2.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Jagua artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Jagua Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 2,
@@ -383,11 +438,12 @@ export const products: SeedProduct[] = [
       `${v}mismafoto-cereza-jagua-sangria.webp`,
       `${v}mismafoto-cereza-jagua-sangria-2.webp`,
       `${v}persona-con-vino-4.webp`,
-      `${v}persona-vino.webp`,
       `${v}personas-con-vinos-3.webp`,
-      `${v}personas-vino-1.webp`,
-      `${v}personas-vino3.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Cereza artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Cherry Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 3,
@@ -404,15 +460,17 @@ export const products: SeedProduct[] = [
       `${v}chinola2.webp`,
       `${v}chinolaaa.webp`,
       `${v}personas-con-vinos-4.webp`,
-      `${v}personas-vino-2.webp`,
-      `${v}personas-vino4.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Chinola artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Passion Fruit Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 4,
   },
   {
-    name: { es: "Vino de Cranberry", en: "Cranberry Wine" },
+    name: { es: "Vino de Cramberry", en: "Cramberry Wine" },
     description: {
       es: "Vino artesanal elaborado con cranberry fresco. Sin alcohol agregado.",
       en: "Artisanal wine made with fresh cranberry. No added alcohol.",
@@ -423,9 +481,11 @@ export const products: SeedProduct[] = [
       `${v}camberry2.webp`,
       `${v}cramberry.webp`,
       `${v}personas-con-vinos-5.webp`,
-      `${v}personas-vino-3.webp`,
-      `${v}parejavinos.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Cramberry artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Cramberry Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 5,
@@ -442,9 +502,11 @@ export const products: SeedProduct[] = [
       `${v}pitaya2.webp`,
       `${v}pitaya3.webp`,
       `${v}personas-con-vinos-6.webp`,
-      `${v}personas-vino-4.webp`,
-      `${v}parejavinoss.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Pitahaya artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Dragon Fruit Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 6,
@@ -461,11 +523,12 @@ export const products: SeedProduct[] = [
       `${v}carambola4.webp`,
       `${v}carambola5.webp`,
       `${v}carabolapiyayamismafoto.webp`,
-      `${v}carambolapitayamismafoto2.webp`,
       `${v}personas-con-vinos-7.webp`,
-      `${v}personas-vino-5.webp`,
-      `${v}personas-vino-6.webp`,
     ],
+    whatsappMessage: {
+      es: "¡Hola! Me interesa el Vino de Carambola artesanal de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
+      en: "Hi! I'm interested in Chocolala's artisanal Starfruit Wine. Is it available and what's the price?",
+    },
     featured: false,
     active: true,
     order: 7,

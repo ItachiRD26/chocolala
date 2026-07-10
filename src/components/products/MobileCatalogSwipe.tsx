@@ -212,7 +212,9 @@ export default function MobileCatalogSwipe({
               >
                 {sheet.kind === "product" ? (
                   <a
-                    href={whatsappLink(inquiryMessage(sheet.data.name[locale]))}
+                    href={whatsappLink(
+                      sheet.data.whatsappMessage?.[locale] ?? inquiryMessage(sheet.data.name[locale]),
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center gap-2 rounded-full bg-chocolala-orange py-3.5 font-sans text-sm font-semibold text-white active:scale-95"

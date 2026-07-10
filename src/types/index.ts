@@ -10,6 +10,7 @@ export type Product = {
   category: string;
   images: string[];
   price?: LocalizedText;
+  whatsappMessage?: LocalizedText;
   featured: boolean;
   active: boolean;
   order: number;

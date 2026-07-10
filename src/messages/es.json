@@ -77,12 +77,12 @@
     "valuesTitle": "Nuestros Valores",
     "valuesHeading": "Lo que nos define",
     "values": [
-      "Honestidad",
-      "Compromiso",
-      "Solidaridad",
-      "Empatía",
-      "Integridad",
-      "Trabajo en equipo"
+      { "name": "Honestidad",        "phrase": "Lo que entra en nuestro chocolate entra en nuestra palabra." },
+      { "name": "Compromiso",        "phrase": "Cada tableta es una promesa cumplida." },
+      { "name": "Solidaridad",       "phrase": "Crecemos juntas o no crecemos." },
+      { "name": "Empatía",           "phrase": "Hacemos chocolate pensando en quien lo recibe." },
+      { "name": "Integridad",        "phrase": "Sin atajos — ni en la receta, ni en los negocios." },
+      { "name": "Trabajo en equipo", "phrase": "Este chocolate lo hicieron muchas manos." }
     ],
     "team": {
       "eyebrow": "Las manos detrás del chocolate",

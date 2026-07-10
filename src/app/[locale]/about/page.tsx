@@ -4,15 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import {
-  HeartIcon,
-  HandshakeIcon,
-  ShieldIcon,
-  UsersIcon,
-} from "@/components/ui/icons";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
-
-const VALUE_ICONS = [ShieldIcon, HandshakeIcon, UsersIcon, HeartIcon, ShieldIcon, UsersIcon];
 
 export default function AboutPage() {
   return (
@@ -148,16 +140,16 @@ function MissionVisionSection() {
 
 function ValuesSection() {
   const t = useTranslations("about");
-  const values = t.raw("values") as string[];
+  const values = t.raw("values") as { name: string; phrase: string }[];
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20">
+    <div className="mx-auto max-w-5xl px-6 py-20">
       <motion.div
-        initial={{ y: 30 }}
-        whileInView={{ y: 0 }}
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
-        className="mb-12 text-center"
+        className="mb-14 text-center"
       >
         <span className="mb-3 block font-sans text-sm font-semibold uppercase tracking-widest text-chocolala-orange">
           {t("valuesTitle")}
@@ -171,26 +163,30 @@ function ValuesSection() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-2 gap-4 sm:grid-cols-3"
+        viewport={{ once: true, amount: 0.1 }}
+        className="flex flex-col"
       >
-        {values.map((value, i) => {
-          const Icon = VALUE_ICONS[i % VALUE_ICONS.length];
-          return (
-            <motion.div
-              key={value}
-              variants={staggerItem}
-              className="flex flex-col items-center gap-3 rounded-xl bg-chocolala-brown-light px-5 py-8 text-center transition-transform hover:-translate-y-1"
-            >
-              <span className="rounded-full bg-chocolala-cream/10 p-3 text-chocolala-orange">
-                <Icon className="h-6 w-6" />
+        {values.map((value, i) => (
+          <motion.div
+            key={value.name}
+            variants={staggerItem}
+            className="group border-t border-chocolala-cream/12 py-6 last:border-b"
+          >
+            <div className="flex items-baseline gap-5">
+              <span className="w-7 shrink-0 font-sans text-xs font-semibold tabular-nums text-chocolala-orange/40">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="font-sans text-sm font-semibold text-chocolala-cream">
-                {value}
-              </span>
-            </motion.div>
-          );
-        })}
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-10">
+                <span className="w-44 shrink-0 font-serif text-xl text-chocolala-cream transition-colors group-hover:text-chocolala-orange sm:text-2xl">
+                  {value.name}
+                </span>
+                <span className="font-sans text-sm leading-relaxed text-chocolala-cream/55 sm:text-base">
+                  {value.phrase}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );

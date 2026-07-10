@@ -53,7 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </p>
         <a
           href={whatsappLink(
-            t("inquiryMessage", { product: product.name[locale] }),
+            product.whatsappMessage?.[locale] ?? t("inquiryMessage", { product: product.name[locale] }),
           )}
           target="_blank"
           rel="noopener noreferrer"

@@ -31,12 +31,13 @@ export default function HeroSection() {
         muted
         loop
         playsInline
+        poster="/videos/loader-poster.webp"
         className="absolute inset-0 hidden h-full w-full object-cover md:block"
       >
-        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/hero-15seg.webm" type="video/webm" />
       </video>
 
-      <div aria-hidden="true" className="absolute inset-0 bg-chocolala-brown-dark/75" />
+      <div aria-hidden="true" className="absolute inset-0 bg-chocolala-brown-dark/60" />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
         <motion.div
