@@ -14,7 +14,7 @@
   "story": {
     "eyebrow": "Nuestra historia",
     "title": "Cacao dominicano, hecho a mano",
-    "body": "Somos una empresa dominicana dedicada a elaborar productos auténticos derivados del cacao, una alternativa saludable que exalta el trabajo de la mujer rural de Altamira, Puerto Plata. Cada producto nace de un proceso artesanal que respeta la tierra y la tradición.",
+    "body": "Nacimos con la visión de generar oportunidades económicas para las mujeres rurales de Las Lajas, Altamira, transformando el cacao en productos de valor agregado. Hoy combinamos producción artesanal con experiencias auténticas de turismo comunitario.",
     "cta": "Conoce más sobre nosotros"
   },
   "products": {
@@ -45,8 +45,36 @@
     "eyebrow": "Vívelo en la fábrica",
     "title": "Nuestros Tours",
     "bookWhatsapp": "Reservar por WhatsApp",
-    "inquiryMessage": "Hola, quiero reservar el tour: {tour}",
-    "empty": "Estamos preparando la información de nuestros tours."
+    "inquiryMessage": "¡Hola! Quiero reservar el tour {tour}. ¿Cuál es la disponibilidad y cómo coordino mi visita?",
+    "empty": "Estamos preparando la información de nuestros tours.",
+    "policy": {
+      "title": "Política de Reservas y Pagos",
+      "reservations": {
+        "title": "Reservas",
+        "lines": [
+          "Tours con almuerzo incluido: reservar con mínimo 4 días de anticipación.",
+          "Tour rápido (45 min): reservar con 1 día de anticipación.",
+          "En ambos casos se requiere el 50% de pago por adelantado."
+        ]
+      },
+      "modifications": {
+        "title": "Modificaciones y cancelaciones",
+        "lines": [
+          "Modificaciones: hasta 24 horas antes.",
+          "Cancelaciones: hasta 72 horas antes."
+        ]
+      },
+      "payment": {
+        "title": "Formas de pago",
+        "lines": [
+          "Transferencia bancaria",
+          "Depósito bancario",
+          "Efectivo",
+          "Tarjeta"
+        ]
+      },
+      "deposit": "50% de anticipo para confirmar la reserva."
+    }
   },
   "gallery": {
     "eyebrow": "Detrás del chocolate",
@@ -64,7 +92,7 @@
     "history": {
       "eyebrow": "Quiénes somos",
       "title": "Nuestra historia",
-      "body": "Fábrica de Chocolate Artesanal Chocolala es una empresa dominicana dedicada a elaborar productos auténticos derivados del cacao, una alternativa saludable que exalta el trabajo de la mujer rural de Las Lajas Altamira, Puerto Plata."
+      "body": "La Fábrica de Chocolate Artesanal CHOCOLALA S.R.L. es una empresa liderada por mujeres de la comunidad de Las Lajas, municipio de Altamira, provincia Puerto Plata, República Dominicana. Nació con la visión de generar oportunidades económicas para las mujeres rurales mediante la transformación del cacao en productos de valor agregado. Con el paso de los años, se consolidó como una empresa formal que combina la producción artesanal de derivados del cacao con experiencias de turismo comunitario. Nuestros visitantes pueden conocer el proceso completo del cacao, desde el cultivo en la finca hasta la elaboración del chocolate artesanal, participando en experiencias auténticas que conectan la agricultura, la cultura y la comunidad."
     },
     "mission": {
       "title": "Misión",
@@ -87,7 +115,7 @@
     "team": {
       "eyebrow": "Las manos detrás del chocolate",
       "title": "Nuestro Equipo",
-      "subtitle": "Personas reales de Las Lajas Altamira que hacen posible cada producto.",
+      "subtitle": "Un grupo de mujeres de Las Lajas, Altamira, comprometidas con la calidad y la tradición del cacao dominicano.",
       "members": [
         { "name": "Nelfi Altagracia Garcia", "role": "Gerente", "image": "equipo-5" },
         { "name": "Kenia Altagracia Batista", "role": "Secretaria Ejecutiva", "image": "equipo-9" },

@@ -96,6 +96,72 @@ export default function ToursSection() {
             })}
           </motion.div>
         )}
+
+        {/* ── Política de reservas ──────────────────────────────────── */}
+        <motion.div
+          initial={{ y: 24, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="mt-14 rounded-2xl border border-chocolala-cream/10 bg-chocolala-brown-light p-8 md:p-10"
+        >
+          <h3 className="mb-8 font-serif text-2xl text-chocolala-cream">
+            {t("policy.title")}
+          </h3>
+
+          <div className="grid gap-8 sm:grid-cols-3">
+            {/* Reservas */}
+            <div>
+              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
+                {t("policy.reservations.title")}
+              </p>
+              <ul className="flex flex-col gap-2">
+                {(t.raw("policy.reservations.lines") as string[]).map((line) => (
+                  <li key={line} className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-chocolala-orange/50" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Modificaciones y cancelaciones */}
+            <div>
+              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
+                {t("policy.modifications.title")}
+              </p>
+              <ul className="flex flex-col gap-2">
+                {(t.raw("policy.modifications.lines") as string[]).map((line) => (
+                  <li key={line} className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-chocolala-orange/50" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Formas de pago */}
+            <div>
+              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
+                {t("policy.payment.title")}
+              </p>
+              <ul className="flex flex-col gap-2">
+                {(t.raw("policy.payment.lines") as string[]).map((line) => (
+                  <li key={line} className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-chocolala-orange/50" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-chocolala-cream/10 pt-6">
+            <p className="font-serif text-base italic text-chocolala-cream/60">
+              {t("policy.deposit")}
+            </p>
+          </div>
+        </motion.div>
       </div>
     </AnimatedSection>
   );

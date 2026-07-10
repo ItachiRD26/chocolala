@@ -539,10 +539,10 @@ export const tours: SeedTour[] = [
   {
     name: { es: "Sabor y Tradición", en: "Flavor & Tradition" },
     description: {
-      es: "Nuestro tour completo: la historia de Chocolala, conexión eco-sensorial con la naturaleza, degustación de la fruta del cacao y su proceso de siembra, vivencia y recuerdo en el cacaotal, degustación de chocolate de agua, demostración de producción de chocolate tradicional (tostado, pelado, majado, elaboración de bolas de cacao y jabón artesanal), presentación del proceso de producción en la fábrica, explicación de los beneficios de los productos, almuerzo típico dominicano, degustación de vinos artesanales y compra de productos. Incluye transporte. Mínimo 5 personas, máximo 30 o más.",
-      en: "Our complete tour: the story of Chocolala, an eco-sensory connection with nature, tasting the cacao fruit and learning about planting, an experience in the cacao grove, a water-chocolate tasting, a traditional chocolate production demonstration (roasting, peeling, grinding, making cacao balls and artisanal soap), a factory production walkthrough, an explanation of product benefits, a traditional Dominican lunch, an artisanal wine tasting, and the chance to shop. Transportation included. Minimum 5 people, maximum 30 or more.",
+      es: "Nuestra experiencia completa: bienvenida y presentación del guía, breve historia de Chocolala, recorrido eco-sensorial por la finca con presentación de los árboles frutales (cacao, jagua, chino y más), vivencia en el cacaotal y degustación de la fruta fresca, preparación de chocolate de agua, demostración de producción artesanal tradicional (tostado, pelado, pilado, elaboración de bola de cacao, jabón y exfoliante), recorrido por el área de fábrica, elaboración de su propio postre de chocolate, almuerzo típico dominicano, degustación de chocolates y vinos artesanales, y compras en tienda.",
+      en: "Our complete experience: welcome and guide introduction, a brief history of Chocolala, an eco-sensory walk through the farm with a presentation of the fruit trees (cacao, jagua, chino, and more), time in the cacao grove with fresh fruit tasting, water-chocolate preparation, a traditional artisanal production demonstration (roasting, peeling, grinding, cacao ball making, soap and body scrub), a factory walkthrough, crafting your own chocolate dessert, a traditional Dominican lunch, tasting of chocolates and artisanal wines, and shopping in the store.",
     },
-    duration: "4 horas",
+    duration: "3 horas",
     images: [
       "/catalog/tours/img-7524.webp",
       "/catalog/tours/img-7528.webp",
@@ -553,18 +553,17 @@ export const tours: SeedTour[] = [
       "/catalog/tours/img-7561.webp",
       "/catalog/tours/img-7568.webp",
     ],
-    price: { es: "RD$1,500 p/p + ITBIS", en: "$15 USD p/p + tax" },
+    price: { es: "RD$2,000 p/p", en: "US$33 p/p" },
     active: true,
     order: 0,
   },
   {
-    name: { es: "Choco Exploradores", en: "Choco Explorers" },
+    name: { es: "Del Árbol a tu Corazón", en: "From Tree to Heart" },
     description: {
-      es: "Un taller pensado para los más pequeños: bienvenida con chocolate caliente o frío, entrega de instrumento para el taller, experiencia del cacao a la barra, creación de figuras y decoración (frutos secos, chispas, frutas y cupcakes), recorrido por el sendero con explicación, y conocerán el tostado y la elaboración del chocolate tradicional. Se llevan su cajita feliz. Para niños de 3 a 10 años; incluye un adulto acompañante (acompañante extra: RD$300 / $3 USD).",
-      en: "A workshop designed for the little ones: a hot or cold chocolate welcome, workshop tools provided, a bean-to-bar experience, creating and decorating chocolate figures (nuts, sprinkles, fruit, and cupcakes), a guided trail walk, and learning how traditional chocolate is roasted and made. They take home their own happy box. For kids ages 3 to 10; includes one accompanying adult (extra companion: RD$300 / $3 USD).",
+      es: "Una experiencia diseñada para cruceristas: bienvenida con salve, décima o música dominicana y una bebida (vino o chocolate de agua con ron), historia de Chocolala y el impacto de sus mujeres productoras, caminata por la plantación con explicación de variedades y cultivo del cacao, cosecha de una mazorca y degustación de la fruta fresca, taller de transformación artesanal (secado, fermentación, descascarillado, molienda), elaboración de tu propia barra de chocolate con los ingredientes que elijas, degustación de vinos artesanales y chocolates, souvenir y tiempo para compras.",
+      en: "An experience crafted for cruise visitors: welcome with Dominican music (salve or décima) and a drink (wine or water-chocolate with rum), the story of Chocolala and the impact of its women producers, a plantation walk with explanations of cacao varieties and cultivation, harvesting a cacao pod and tasting the fresh fruit, an artisanal transformation workshop (drying, fermentation, husking, grinding), crafting your own chocolate bar with your choice of ingredients, tasting of artisanal wines and chocolates, a souvenir, and time to shop.",
     },
-    duration: "2 horas",
-    ageRange: "3-10 años",
+    duration: "2 horas 30 minutos",
     images: [
       "/catalog/tours/img-7584.webp",
       "/catalog/tours/img-7587.webp",
@@ -575,15 +574,14 @@ export const tours: SeedTour[] = [
       "/catalog/tours/img-7608.webp",
       "/catalog/tours/img-7611.webp",
     ],
-    price: { es: "RD$1,000 p/p", en: "$10 USD p/p" },
     active: true,
     order: 1,
   },
   {
-    name: { es: "ChocoHistory", en: "ChocoHistory" },
+    name: { es: "Sabor en 45 Minutos", en: "Flavor in 45 Minutes" },
     description: {
-      es: "Una experiencia introductoria por nuestro proceso artesanal: bienvenida con chocolate caliente, recorrido interpretativo por el sendero, conexión eco-sensorial con la naturaleza, degustación de la fruta de cacao y su proceso de siembra, vivencia en el cacaotal, demostración de herramientas tradicionales de producción y degustación de nuestros productos, con oportunidad de compra al final.",
-      en: "An introductory experience through our artisanal process: a hot chocolate welcome, an interpretive trail walk, an eco-sensory connection with nature, tasting the cacao fruit and learning about planting, time in the cacao grove, a traditional production tools demonstration, and a product tasting — with the chance to shop at the end.",
+      es: "Una experiencia introductoria y rápida: bienvenida, recorrido por el sendero interpretativo, degustación de la fruta del cacao, muestra de las herramientas tradicionales de producción de chocolate, degustación y presentación de los diferentes productos Chocolala, y oportunidad de compra al finalizar.",
+      en: "A quick introductory experience: welcome, an interpretive trail walk, cacao fruit tasting, a display of traditional chocolate production tools, tasting and presentation of the different Chocolala products, and the chance to shop at the end.",
     },
     duration: "45 minutos",
     images: [
@@ -596,7 +594,7 @@ export const tours: SeedTour[] = [
       "/catalog/tours/img-7657.webp",
       "/catalog/tours/img-7662.webp",
     ],
-    price: { es: "RD$500 p/p", en: "$5 USD p/p" },
+    price: { es: "RD$500 p/p", en: "US$9 p/p" },
     active: true,
     order: 2,
   },
