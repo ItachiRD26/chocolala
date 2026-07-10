@@ -47,6 +47,8 @@
     "bookWhatsapp": "Book on WhatsApp",
     "inquiryMessage": "Hi! I'd like to book the {tour} tour. What's the availability and how do I arrange my visit?",
     "empty": "We're preparing the details for our tours.",
+    "heroSubtitle": "Chocolala's offering integrates community tourism experiences centered on cacao, local culture, and the rural life of Altamira.",
+    "viewAll": "View all tours",
     "policy": {
       "title": "Booking & Payment Policy",
       "reservations": {

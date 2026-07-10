@@ -1,13 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { CompassIcon } from "@/components/ui/icons";
-import ImageCarousel from "@/components/ui/ImageCarousel";
 import { useCatalogTours } from "@/hooks/useCatalogData";
 import { whatsappLink } from "@/lib/constants";
 import { staggerContainer, staggerItem } from "@/lib/motionVariants";
+
+const BLUR = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAFElEQVR4nGPUEeFiwAZYsIpSVwIAKJIAXI6FZNIAAAAASUVORK5CYII=";
 
 export default function ToursSection() {
   const t = useTranslations("tours");
@@ -51,24 +54,30 @@ export default function ToursSection() {
                 <motion.div
                   key={tour.id}
                   variants={staggerItem}
-                  className="flex flex-col overflow-hidden rounded-2xl bg-chocolala-brown-light text-chocolala-cream"
+                  className="group/card flex flex-col overflow-hidden rounded-2xl bg-chocolala-brown-light text-chocolala-cream"
                 >
-                  <ImageCarousel
-                    images={tour.images}
-                    alt={tour.name[locale]}
-                    className="aspect-[4/3] w-full"
-                    fallback={
-                      <div className="flex h-full items-center justify-center bg-linear-to-br from-chocolala-brown-light via-chocolala-brown to-chocolala-brown-light text-chocolala-cream/30">
+                  <div className="relative aspect-4/3 w-full overflow-hidden">
+                    {tour.images[0] ? (
+                      <Image
+                        src={tour.images[0]}
+                        alt={tour.name[locale]}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover/card:scale-105"
+                        placeholder="blur"
+                        blurDataURL={BLUR}
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center bg-chocolala-brown text-chocolala-cream/20">
                         <CompassIcon className="h-12 w-12" />
                       </div>
-                    }
-                  />
+                    )}
+                  </div>
 
                   <div className="flex flex-1 flex-col gap-3 p-6">
                     <div className="flex items-start justify-between gap-2">
                       <span className="font-sans text-xs font-semibold uppercase tracking-wide text-chocolala-orange">
                         {tour.duration}
-                        {tour.ageRange ? ` · ${tour.ageRange}` : ""}
                       </span>
                       {price && (
                         <span className="shrink-0 rounded-full bg-chocolala-cream/10 px-3 py-1 font-sans text-xs font-semibold text-chocolala-cream">
@@ -77,7 +86,7 @@ export default function ToursSection() {
                       )}
                     </div>
                     <h3 className="font-serif text-xl">{tour.name[locale]}</h3>
-                    <p className="flex-1 font-sans text-sm text-chocolala-cream/80">
+                    <p className="line-clamp-3 flex-1 font-sans text-sm text-chocolala-cream/70">
                       {tour.description[locale]}
                     </p>
                     <a
@@ -97,71 +106,14 @@ export default function ToursSection() {
           </motion.div>
         )}
 
-        {/* ── Política de reservas ──────────────────────────────────── */}
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-          className="mt-14 rounded-2xl border border-chocolala-cream/10 bg-chocolala-brown-light p-8 md:p-10"
-        >
-          <h3 className="mb-8 font-serif text-2xl text-chocolala-cream">
-            {t("policy.title")}
-          </h3>
-
-          <div className="grid gap-8 sm:grid-cols-3">
-            {/* Reservas */}
-            <div>
-              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
-                {t("policy.reservations.title")}
-              </p>
-              <ul className="flex flex-col gap-2">
-                {(t.raw("policy.reservations.lines") as string[]).map((line) => (
-                  <li key={line} className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-chocolala-orange/50" />
-                    {line}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Modificaciones y cancelaciones */}
-            <div>
-              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
-                {t("policy.modifications.title")}
-              </p>
-              <ul className="flex flex-col gap-2">
-                {(t.raw("policy.modifications.lines") as string[]).map((line) => (
-                  <li key={line} className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-chocolala-orange/50" />
-                    {line}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Formas de pago */}
-            <div>
-              <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
-                {t("policy.payment.title")}
-              </p>
-              <ul className="flex flex-col gap-2">
-                {(t.raw("policy.payment.lines") as string[]).map((line) => (
-                  <li key={line} className="flex items-start gap-2 font-sans text-sm text-chocolala-cream/70">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-chocolala-orange/50" />
-                    {line}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 border-t border-chocolala-cream/10 pt-6">
-            <p className="font-serif text-base italic text-chocolala-cream/60">
-              {t("policy.deposit")}
-            </p>
-          </div>
-        </motion.div>
+        <div className="mt-10 text-center">
+          <Link
+            href="/tours"
+            className="inline-flex items-center gap-2 rounded-full border border-chocolala-cream/25 px-8 py-3 font-sans text-sm font-semibold text-chocolala-cream transition-colors hover:border-chocolala-orange hover:text-chocolala-orange"
+          >
+            {t("viewAll")}
+          </Link>
+        </div>
       </div>
     </AnimatedSection>
   );

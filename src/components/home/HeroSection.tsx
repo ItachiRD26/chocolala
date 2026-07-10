@@ -73,7 +73,7 @@ export default function HeroSection() {
             {t("ctaProducts")}
           </Link>
           <Link
-            href="/contact"
+            href="/tours"
             className="rounded-full border border-chocolala-cream/40 px-8 py-3 text-sm font-semibold text-chocolala-cream transition-colors hover:border-chocolala-cream hover:bg-chocolala-cream/10 md:px-10 md:py-4 md:text-base"
           >
             {t("ctaTours")}

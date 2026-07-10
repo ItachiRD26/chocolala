@@ -47,6 +47,8 @@
     "bookWhatsapp": "Reservar por WhatsApp",
     "inquiryMessage": "¡Hola! Quiero reservar el tour {tour}. ¿Cuál es la disponibilidad y cómo coordino mi visita?",
     "empty": "Estamos preparando la información de nuestros tours.",
+    "heroSubtitle": "La oferta de Chocolala integra experiencias de turismo comunitario centradas en el cacao, la cultura local y la vida rural de Altamira.",
+    "viewAll": "Ver todos los tours",
     "policy": {
       "title": "Política de Reservas y Pagos",
       "reservations": {
