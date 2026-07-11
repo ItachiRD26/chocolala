@@ -189,6 +189,9 @@ export const products: SeedProduct[] = [
       `${c}manteca-de-cacao-5.webp`,
       `${c}manteca-de-cacao-6.webp`,
       `${c}manteca-de-cacao-7.webp`,
+      `${c}img-4368.webp`,
+      `${c}img-4369.webp`,
+      `${c}img-4370.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa la Manteca de Cacao de Chocolala. ¿Qué presentaciones manejan y cuál es el precio?",
