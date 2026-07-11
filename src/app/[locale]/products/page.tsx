@@ -7,7 +7,6 @@ import Image from "next/image";
 import {
   useCatalogProducts,
   useCatalogCategories,
-  useCatalogTours,
 } from "@/hooks/useCatalogData";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 import ProductLightbox from "@/components/ui/ProductLightbox";
@@ -22,8 +21,9 @@ import {
   ExpandIcon,
   CompassIcon,
 } from "@/components/ui/icons";
+import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/lib/constants";
-import type { Category, Product, Tour } from "@/types";
+import type { Category, Product } from "@/types";
 
 const CATEGORY_ICONS: Record<string, typeof CacaoPodIcon> = {
   chocolate: MugIcon,
@@ -39,7 +39,6 @@ export default function ProductsPage() {
   const locale = useLocale() as "es" | "en";
   const { products } = useCatalogProducts();
   const { categories } = useCatalogCategories();
-  const { tours } = useCatalogTours();
   const tTours = useTranslations("tours");
   const [lightboxProduct, setLightboxProduct] = useState<Product | null>(null);
   const openLightbox = useCallback((p: Product) => setLightboxProduct(p), []);
@@ -138,12 +137,12 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* ── MOBILE: full-screen swipe catalog (tours included) ── */}
+      {/* ── MOBILE: full-screen swipe catalog ── */}
       <div className="md:hidden">
         <MobileCatalogSwipe
           products={products}
           categories={categories}
-          tours={tours}
+          tours={[]}
           locale={locale}
           inquireLabel={t("inquireWhatsapp")}
           inquiryMessage={(name) => t("inquiryMessage", { product: name })}
@@ -172,13 +171,6 @@ export default function ProductsPage() {
                 </a>
               );
             })}
-            <a
-              href="#tours"
-              className="flex shrink-0 items-center gap-1.5 rounded-full px-4 py-1.5 font-sans text-xs font-semibold text-chocolala-cream/50 transition-all hover:bg-chocolala-orange/15 hover:text-chocolala-cream"
-            >
-              <CompassIcon className="h-3.5 w-3.5 text-chocolala-orange" />
-              {locale === "es" ? "Tours" : "Tours"}
-            </a>
           </div>
         </div>
 
@@ -212,26 +204,38 @@ export default function ProductsPage() {
           );
         })}
 
-        {/* Tours — editorial layout */}
-        {tours.length > 0 && (
-          <section id="tours" className="border-t border-chocolala-cream/10">
-            <ChapterHeader
-              category={{ id: "tours", slug: "tours", name: { es: "Nuestros Tours", en: "Our Tours" }, order: 99 }}
-              locale={locale}
-              description={locale === "es" ? "Vive el cacao desde adentro · Altamira, Puerto Plata" : "Experience cacao from within · Altamira, Puerto Plata"}
-              Icon={CompassIcon}
-            />
-            {tours.map((tour, i) => (
-              <EditorialTour
-                key={tour.id}
-                tour={tour}
-                locale={locale}
-                reverse={i % 2 !== 0}
-                tTours={tTours}
-              />
-            ))}
-          </section>
-        )}
+        {/* Tours CTA */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="relative overflow-hidden border-t border-chocolala-cream/10 bg-chocolala-brown-dark py-28 text-center"
+        >
+          <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-chocolala-orange/8 blur-3xl" />
+          <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-6 px-6">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-chocolala-cream/5 text-chocolala-orange">
+              <CompassIcon className="h-7 w-7" />
+            </span>
+            <p className="font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
+              {locale === "es" ? "Altamira, Puerto Plata" : "Altamira, Puerto Plata"}
+            </p>
+            <h2 className="font-serif text-4xl text-chocolala-cream sm:text-5xl">
+              {locale === "es" ? "Visita nuestros tours" : "Visit our tours"}
+            </h2>
+            <p className="font-serif text-lg italic text-chocolala-cream/55">
+              {locale === "es"
+                ? "Vive el cacao desde adentro — desde la finca hasta la tableta."
+                : "Experience cacao from within — from the farm to the bar."}
+            </p>
+            <Link
+              href="/tours"
+              className="mt-2 inline-flex items-center gap-2 rounded-full bg-chocolala-orange px-8 py-4 font-sans text-sm font-semibold text-white transition-transform hover:scale-105"
+            >
+              {locale === "es" ? "Ver todos los tours" : "View all tours"}
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -275,80 +279,6 @@ function ChapterHeader({
   );
 }
 
-function EditorialTour({
-  tour,
-  locale,
-  reverse,
-  tTours,
-}: {
-  tour: Tour;
-  locale: "es" | "en";
-  reverse: boolean;
-  tTours: ReturnType<typeof useTranslations>;
-}) {
-  return (
-    <motion.div
-      initial={{ y: 40 }}
-      whileInView={{ y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`group/editorial flex min-h-[70vh] flex-col ${reverse ? "md:flex-row-reverse" : "md:flex-row"}`}
-    >
-      <div className="relative h-[50vh] w-full overflow-hidden md:h-auto md:w-[55%]">
-        <ImageCarousel
-          images={tour.images}
-          alt={tour.name[locale]}
-          className="h-full w-full"
-          fallback={
-            <div className="flex h-full flex-col items-center justify-center gap-3 bg-chocolala-brown-light text-chocolala-cream/20">
-              <CompassIcon className="h-16 w-16" />
-            </div>
-          }
-        />
-      </div>
-
-      <div className="flex w-full flex-col justify-center gap-6 px-8 py-12 md:w-[45%] md:px-14">
-        <motion.div
-          initial={{ x: reverse ? 20 : -20 }}
-          whileInView={{ x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col gap-5"
-        >
-          <div className="flex flex-wrap gap-2">
-            <span className="rounded-full bg-chocolala-brown-light px-3 py-1 font-sans text-xs font-semibold text-chocolala-orange">
-              ⏱ {tour.duration}
-            </span>
-            {tour.ageRange && (
-              <span className="rounded-full bg-chocolala-brown-light px-3 py-1 font-sans text-xs text-chocolala-cream/60">
-                👥 {tour.ageRange}
-              </span>
-            )}
-            {tour.price?.[locale] && (
-              <span className="rounded-full bg-chocolala-orange/15 px-3 py-1 font-sans text-xs font-semibold text-chocolala-orange">
-                {tour.price[locale]}
-              </span>
-            )}
-          </div>
-          <h2 className="font-serif text-4xl leading-tight text-chocolala-cream sm:text-5xl">
-            {tour.name[locale]}
-          </h2>
-          <p className="max-w-sm font-sans text-base leading-relaxed text-chocolala-cream/70">
-            {tour.description[locale]}
-          </p>
-          <a
-            href={whatsappLink(tTours("inquiryMessage", { tour: tour.name[locale] }))}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex w-fit items-center justify-center rounded-full bg-chocolala-orange px-7 py-3.5 font-sans text-sm font-semibold text-white transition-transform hover:scale-105"
-          >
-            {tTours("bookWhatsapp")}
-          </a>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-}
 
 function EditorialProduct({
   product,
