@@ -78,9 +78,16 @@ export const products: SeedProduct[] = [
       `${c}chocolate70-1.webp`,
       `${c}chocolate70-2.webp`,
       `${c}chocolate70-3.webp`,
+      `${c}chocolate70-4.webp`,
+      `${c}chocolate70-5.webp`,
+      `${c}chocolate70-6.webp`,
       `${c}chocolate70-diferentes-views-1.webp`,
       `${c}chocolate70-diferentes-views-2.webp`,
+      `${c}chocolate70-diferentes-views-3.webp`,
+      `${c}chocolate70-diferentes-views-4.webp`,
       `${c}chocolate70-muestras-1.webp`,
+      `${c}chocolate70-muestras-2.webp`,
+      `${c}chocolate70-muestras-3.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa el Chocolate 70% Cacao de Chocolala. ¿Cuáles son las presentaciones disponibles y el precio?",
@@ -104,9 +111,12 @@ export const products: SeedProduct[] = [
       `${c}chocolate-blanco-con-sabor-a-naranja-1.webp`,
       `${c}chocolate-blanco-con-sabor-a-naranja-2.webp`,
       `${c}chocolate-blanco-con-sabor-a-naranja-3.webp`,
+      `${c}chocolate-blanco-con-sabor-a-naranja-4.webp`,
+      `${c}chocolate-blanco-con-sabor-a-naranja-5.webp`,
       `${c}chocolate-blanco-con-sabor-a-naranja-muestras-1.webp`,
       `${c}chocolate-blanco-con-sabor-a-naranja-muestras-2.webp`,
       `${c}chocolate-blanco-con-sabor-a-naranja-muestras-3.webp`,
+      `${c}chocolate-blanco-con-sabor-a-naranja-muestras-4.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa el Chocolate Blanco con Sabor a Naranja de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
@@ -133,6 +143,8 @@ export const products: SeedProduct[] = [
       `${c}chocolate-de-taza-o-mesa-4.webp`,
       `${c}chocolate-de-taza-o-mesa-5.webp`,
       `${c}chocolate-de-taza-o-mesa-6.webp`,
+      `${c}chocolate-de-taza-o-mesa-7.webp`,
+      `${c}chocolate-de-taza-o-mesa-8.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa el Chocolate en Barras para Chocolate de Mesa de Chocolala. ¿Cómo se vende el paquete y cuál es el precio?",
@@ -151,7 +163,9 @@ export const products: SeedProduct[] = [
       en: "Made with 100% cacao. Perfect for preparing strong-flavored or thick-textured chocolate. Ideal for people with diabetes.",
     },
     category: "cacao",
-    images: [], // Imágenes pendientes — el cliente las tomará
+    images: [
+      `${c}cacao-amargo.webp`,
+    ],
     whatsappMessage: {
       es: "¡Hola! Me interesan las Bolas de Cacao Natural de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
       en: "Hi! I'm interested in Chocolala's Natural Cacao Balls. Are they available and what's the price?",
@@ -174,6 +188,7 @@ export const products: SeedProduct[] = [
       `${c}manteca-de-cacao-4.webp`,
       `${c}manteca-de-cacao-5.webp`,
       `${c}manteca-de-cacao-6.webp`,
+      `${c}manteca-de-cacao-7.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa la Manteca de Cacao de Chocolala. ¿Qué presentaciones manejan y cuál es el precio?",
@@ -195,7 +210,10 @@ export const products: SeedProduct[] = [
       en: "Made with high-quality selected cacao beans. Completely artisanal to preserve the pure essence of cacao. With added ginger. Ideal for people with diabetes.",
     },
     category: "snacks",
-    images: [], // Imágenes pendientes — el cliente las tomará
+    images: [
+      `${c}granos-de-cacao-revestidos-de-chocolate-con-jenjibre.webp`,
+      `${c}ambos-granos-de-cacao.webp`,
+    ],
     whatsappMessage: {
       es: "¡Hola! Me interesan los Granos de Cacao con Jengibre de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
       en: "Hi! I'm interested in Chocolala's Chocolate-Covered Cacao Beans with Ginger. Are they available and what's the price?",
@@ -214,7 +232,10 @@ export const products: SeedProduct[] = [
       en: "Made with high-quality selected cacao beans. Completely artisanal to preserve the pure essence of cacao. Without ginger. Ideal for people with diabetes.",
     },
     category: "snacks",
-    images: [], // Imágenes pendientes — el cliente las tomará
+    images: [
+      `${c}granos-de-cacao-revestidos-de-chocolate-sin-jenjibre.webp`,
+      `${c}ambos-granos-de-cacao.webp`,
+    ],
     whatsappMessage: {
       es: "¡Hola! Me interesan los Granos de Cacao sin Jengibre de Chocolala. ¿Tienen disponibilidad y cuál es el precio?",
       en: "Hi! I'm interested in Chocolala's Chocolate-Covered Cacao Beans without Ginger. Are they available and what's the price?",
@@ -236,9 +257,12 @@ export const products: SeedProduct[] = [
       `${c}labial-de-cacao-1.webp`,
       `${c}labial-de-cacao-2.webp`,
       `${c}labial-de-cacao-3.webp`,
+      `${c}labial-de-cacao-4.webp`,
+      `${c}labial-de-cacao-5.webp`,
       `${c}labial-de-cacao-con-modelo-de-chica-1.webp`,
       `${c}labial-de-cacao-con-modelo-de-chica-2.webp`,
       `${c}labial-de-cacao-con-modelo-de-chica-3.webp`,
+      `${c}labial-de-cacao-con-modelo-de-chica-4.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa el Bálsamo para Labios de cacao de Chocolala. ¿Qué presentaciones tienen y cuál es el precio?",
