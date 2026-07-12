@@ -249,7 +249,7 @@ function CoverSlide({ locale, count }: { locale: "es" | "en"; count: number }) {
   return (
     <div
       className="relative flex min-w-full flex-col items-center justify-center overflow-hidden bg-chocolala-brown-dark"
-      style={{ scrollSnapAlign: "start", height: SLIDE_H }}
+      style={{ scrollSnapAlign: "start", scrollSnapStop: "always", height: SLIDE_H }}
     >
       {/* Warm glow */}
       <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-chocolala-orange/10 blur-[90px]" />
@@ -329,7 +329,7 @@ function ProductSlide({
   return (
     <div
       className="relative flex min-w-full flex-col overflow-hidden bg-chocolala-brown"
-      style={{ scrollSnapAlign: "start", height: SLIDE_H }}
+      style={{ scrollSnapAlign: "start", scrollSnapStop: "always", height: SLIDE_H }}
       onClick={onTap}
     >
       {/* Full-bleed image */}
@@ -401,7 +401,7 @@ function TourSlide({
   return (
     <div
       className="relative flex min-w-full flex-col overflow-hidden bg-chocolala-brown"
-      style={{ scrollSnapAlign: "start", height: SLIDE_H }}
+      style={{ scrollSnapAlign: "start", scrollSnapStop: "always", height: SLIDE_H }}
       onClick={onTap}
     >
       {hasImg ? (
