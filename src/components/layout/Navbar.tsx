@@ -35,9 +35,9 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: t("home") },
-    { href: "/products", label: t("products") },
-    { href: "/tours", label: t("tours") },
     { href: "/about", label: t("about") },
+    { href: "/tours", label: t("tours") },
+    { href: "/products", label: t("products") },
     { href: "/contact", label: t("contact") },
   ] as const;
 

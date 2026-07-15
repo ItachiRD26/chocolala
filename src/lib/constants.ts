@@ -1,3 +1,5 @@
+export const SITE_URL = "https://chocolala.do";
+
 export const SITE_INFO = {
   whatsapp: "18098638887",
   phone: { cel: "809-863-8887", fijo: "809-291-1032" },

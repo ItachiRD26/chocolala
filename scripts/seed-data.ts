@@ -25,6 +25,7 @@ export type SeedTour = {
   ageRange?: string;
   images: string[];
   price?: LocalizedText;
+  virtualTourVideoUrls?: string[];
   active: boolean;
   order: number;
 };
@@ -88,6 +89,7 @@ export const products: SeedProduct[] = [
       `${c}chocolate70-muestras-1.webp`,
       `${c}chocolate70-muestras-2.webp`,
       `${c}chocolate70-muestras-3.webp`,
+      `${c}granos-de-cacao.webp`,
     ],
     whatsappMessage: {
       es: "¡Hola! Me interesa el Chocolate 70% Cacao de Chocolala. ¿Cuáles son las presentaciones disponibles y el precio?",
@@ -571,14 +573,12 @@ export const tours: SeedTour[] = [
     },
     duration: "3 horas",
     images: [
-      "/catalog/tours/img-7524.webp",
-      "/catalog/tours/img-7528.webp",
-      "/catalog/tours/img-7538.webp",
-      "/catalog/tours/img-7541.webp",
-      "/catalog/tours/img-7547.webp",
-      "/catalog/tours/img-7556.webp",
-      "/catalog/tours/img-7561.webp",
-      "/catalog/tours/img-7568.webp",
+      "/catalog/tours/img-7565.webp",
+      "/catalog/tours/img-7566.webp",
+      "/catalog/tours/img-7569.webp",
+      "/catalog/tours/img-7572.webp",
+      "/catalog/tours/img-7577.webp",
+      "/catalog/tours/img-7543.webp",
     ],
     price: { es: "RD$2,000 p/p", en: "US$33 p/p" },
     active: true,
@@ -592,6 +592,10 @@ export const tours: SeedTour[] = [
     },
     duration: "2 horas 30 minutos",
     images: [
+      "/catalog/tours/del-arbol-a-tu-corazon-1.webp",
+      "/catalog/tours/del-arbol-a-tu-corazon-2.webp",
+      "/catalog/tours/del-arbol-a-tu-corazon-3.webp",
+      "/catalog/tours/del-arbol-a-tu-corazon-4.webp",
       "/catalog/tours/img-7584.webp",
       "/catalog/tours/img-7587.webp",
       "/catalog/tours/img-7590.webp",
@@ -601,6 +605,7 @@ export const tours: SeedTour[] = [
       "/catalog/tours/img-7608.webp",
       "/catalog/tours/img-7611.webp",
     ],
+    virtualTourVideoUrls: ["/videos/asi-hacemos-chocolate.webm"],
     active: true,
     order: 1,
   },
@@ -624,5 +629,28 @@ export const tours: SeedTour[] = [
     price: { es: "RD$500 p/p", en: "US$9 p/p" },
     active: true,
     order: 2,
+  },
+  {
+    name: { es: "Choco Exploradores", en: "Choco Explorers" },
+    description: {
+      es: "Descubre el mundo del cacao a través de todos los sentidos. Un recorrido diseñado para familias, grupos y todos los amantes de la aventura. Desde la finca hasta el proceso artesanal, con talleres interactivos, degustaciones y la oportunidad de crear tu propio chocolate. Una experiencia única en la que cada participante se convierte en chocolatero por un día.",
+      en: "Discover the world of cacao through all your senses. A journey designed for families, groups, and adventure lovers — from the farm to the artisanal process, with interactive workshops, tastings, and the chance to craft your own chocolate. A one-of-a-kind experience where every participant becomes a chocolatier for a day.",
+    },
+    duration: "2 horas",
+    images: [
+      "/catalog/tours/choco-exploradoress.webp",
+      "/catalog/tours/img-7524.webp",
+      "/catalog/tours/img-7528.webp",
+      "/catalog/tours/img-7538.webp",
+      "/catalog/tours/img-7541.webp",
+      "/catalog/tours/img-7547.webp",
+      "/catalog/tours/img-7556.webp",
+      "/catalog/tours/img-7561.webp",
+      "/catalog/tours/img-7568.webp",
+    ],
+    price: { es: "RD$1,500 p/p", en: "US$25 p/p" },
+    virtualTourVideoUrls: ["/videos/choco-exploradores.webm"],
+    active: true,
+    order: 3,
   },
 ];

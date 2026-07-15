@@ -270,7 +270,7 @@ function CoverSlide({ locale, count }: { locale: "es" | "en"; count: number }) {
 
         <div className="flex flex-col items-center gap-3">
           <span className="font-sans text-[10px] font-bold uppercase tracking-[0.38em] text-chocolala-orange/80">
-            Chocolala RD
+            Chocolala
           </span>
           <h1 className="font-serif text-5xl leading-[1.05] text-chocolala-cream">
             {locale === "es" ? <>Nuestro<br />Catálogo</> : <>Our<br />Catalog</>}

@@ -135,7 +135,7 @@ export default function Footer() {
 
       {/* ── Copyright ─────────────────────────────────────────────── */}
       <div className="border-t border-chocolala-cream/8 px-6 py-5 text-center font-sans text-xs text-chocolala-cream/30">
-        © {year} Chocolala RD. {t("rights")}
+        © {year} Chocolala. {t("rights")}
       </div>
     </footer>
   );

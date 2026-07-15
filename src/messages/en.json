@@ -39,6 +39,7 @@
     "eyebrow": "Customer favorites",
     "title": "Featured Products",
     "viewAll": "View full catalog",
+    "viewMore": "View more",
     "empty": "We're preparing our catalog. Check back soon!"
   },
   "tours": {
@@ -76,6 +77,12 @@
         ]
       },
       "deposit": "50% deposit required to confirm your booking."
+    },
+    "virtualTour": {
+      "title": "Virtual Tour",
+      "subtitle": "Explore our farm and artisanal factory from anywhere. Soon you'll be able to experience it before visiting us.",
+      "buttonLabel": "Watch Virtual Tour",
+      "comingSoon": "Coming Soon"
     }
   },
   "gallery": {
@@ -114,6 +121,10 @@
       { "name": "Integrity", "phrase": "No shortcuts — not in the recipe, not in business." },
       { "name": "Teamwork",  "phrase": "Many hands made this chocolate." }
     ],
+    "gallery": {
+      "eyebrow": "Chocolala",
+      "title": "Our gallery"
+    },
     "team": {
       "eyebrow": "The hands behind the chocolate",
       "title": "Our Team",
@@ -127,13 +138,14 @@
         { "name": "Maria Aurelia Alvarez", "role": "Collaborator", "image": "equipo-4" },
         { "name": "Alejandrina Rosario Cabrera", "role": "Collaborator", "image": "equipo-6" },
         { "name": "Francia Altagracia Capellan", "role": "Collaborator", "image": "equipo-7" },
-        { "name": "Jureidy Salas Rivera", "role": "Collaborator", "image": "equipo-8" }
+        { "name": "Jureidy Salas Rivera", "role": "Collaborator", "image": "equipo-8" },
+        { "name": "Marcia Jacmel", "role": "Collaborator", "image": "equipo-10" }
       ]
     }
   },
   "contact": {
     "title": "Let's talk.",
-    "eyebrow": "Chocolala RD",
+    "eyebrow": "Chocolala",
     "subtitle": "We're in Altamira, Puerto Plata — and on your WhatsApp.",
     "whatsappCta": "Message us now",
     "whatsappLabel": "WhatsApp",

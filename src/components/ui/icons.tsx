@@ -246,3 +246,11 @@ export function ExpandIcon({ className = "h-5 w-5" }: IconProps) {
     </svg>
   );
 }
+
+export function PlayIcon({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M6 4.75a.75.75 0 0 0-1.173.623v13.254a.75.75 0 0 0 1.173.623l10.5-6.627a.75.75 0 0 0 0-1.246L6 4.75Z" />
+    </svg>
+  );
+}

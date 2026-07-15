@@ -25,6 +25,7 @@ export type Tour = {
   ageRange?: string;
   images: string[];
   price?: LocalizedText;
+  virtualTourVideoUrls?: string[];
   active: boolean;
   order: number;
 };
