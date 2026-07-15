@@ -36,33 +36,72 @@ function AboutHero() {
   const t = useTranslations("about");
 
   return (
-    <div className="relative overflow-hidden bg-chocolala-brown-dark px-6 py-28 text-center">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-24 top-0 h-80 w-80 rounded-full bg-chocolala-orange/12 blur-3xl"
+    <div className="relative flex min-h-[88vh] items-center justify-center overflow-hidden">
+      <Image
+        src="/catalog/tours/img-7528.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+        placeholder="blur"
+        blurDataURL={BLUR}
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-chocolala-orange/10 blur-3xl"
-      />
-      <div className="relative mx-auto max-w-3xl">
-        <motion.p
-          initial={{ y: 12 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-4 font-sans text-sm font-semibold uppercase tracking-widest text-chocolala-orange"
+      {/* Base overlay */}
+      <div className="absolute inset-0 bg-chocolala-brown-dark/55" />
+      {/* Gradient fade to page bg at bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-chocolala-brown-dark to-transparent" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-7 flex items-center justify-center gap-4"
         >
-          Chocolala
-        </motion.p>
+          <span className="h-px w-12 bg-chocolala-orange/70" aria-hidden="true" />
+          <span className="font-sans text-xs font-semibold uppercase tracking-widest text-chocolala-orange">
+            Chocolala
+          </span>
+          <span className="h-px w-12 bg-chocolala-orange/70" aria-hidden="true" />
+        </motion.div>
+
         <motion.h1
-          initial={{ y: 30 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-5xl leading-tight text-chocolala-cream sm:text-6xl"
+          initial={{ opacity: 0, y: 44 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+          className="font-serif text-7xl leading-none text-chocolala-cream sm:text-8xl lg:text-9xl"
         >
           {t("title")}
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.32 }}
+          className="mx-auto mt-7 max-w-md font-sans text-base leading-relaxed text-chocolala-cream/70 sm:text-lg"
+        >
+          {t("heroSubtitle")}
+        </motion.p>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
+        aria-hidden="true"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          className="flex h-9 w-6 items-start justify-center rounded-full border border-chocolala-cream/30 pt-1.5"
+        >
+          <span className="h-2 w-0.5 rounded-full bg-chocolala-cream/50" />
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
