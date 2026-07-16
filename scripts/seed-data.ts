@@ -184,6 +184,7 @@ export const products: SeedProduct[] = [
     },
     category: "cacao",
     images: [
+      `${c}manteca-de-cacao-foto-si.webp`,
       `${c}manteca-de-cacao-1.webp`,
       `${c}manteca-de-cacao-2.webp`,
       `${c}manteca-de-cacao-3.webp`,

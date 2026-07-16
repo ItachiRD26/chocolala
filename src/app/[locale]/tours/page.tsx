@@ -2,6 +2,50 @@ import type { Metadata } from "next";
 import ToursClient from "./ToursClient";
 import { SITE_URL } from "@/lib/constants";
 
+const TOURS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "@id": `${SITE_URL}/es/tours#tours`,
+  name: "Tours de Cacao Chocolala — Altamira, Puerto Plata",
+  description:
+    "Experiencias auténticas de turismo comunitario en la finca y fábrica artesanal de Chocolala. Recorrido por el cacaotal, taller de elaboración de chocolate y degustación de productos artesanales en Las Lajas, Altamira.",
+  url: `${SITE_URL}/es/tours`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Las Lajas, Altamira, carretera principal palmar grande",
+    addressLocality: "Altamira",
+    addressRegion: "Puerto Plata",
+    addressCountry: "DO",
+  },
+  touristType: ["Gastronomy tourism", "Agritourism", "Cultural tourism", "Family tourism"],
+  availableLanguage: ["Spanish", "English"],
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Sabor y Tradición",
+      description: "Tour completo de 3 horas: recorrido eco-sensorial, taller artesanal, almuerzo típico dominicano y degustación.",
+      price: "2000",
+      priceCurrency: "DOP",
+      eligibleQuantity: { "@type": "QuantitativeValue", minValue: 1 },
+    },
+    {
+      "@type": "Offer",
+      name: "Del Árbol a tu Corazón",
+      description: "Experiencia para cruceristas con bienvenida cultural, recorrido por la plantación, taller de chocolate y degustación de vinos artesanales.",
+      priceCurrency: "DOP",
+    },
+    {
+      "@type": "Offer",
+      name: "Choco Exploradores",
+      description: "Tour rápido de 45 minutos ideal para niños y familias. Vivencia en el cacaotal, cosecha y degustación.",
+      price: "500",
+      priceCurrency: "DOP",
+    },
+  ],
+  image: `${SITE_URL}/catalog/tours/img-7524.webp`,
+  sameAs: [`${SITE_URL}/es/tours`, `${SITE_URL}/en/tours`],
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -10,14 +54,19 @@ export async function generateMetadata({
   const { locale } = await params;
   const isEs = locale === "es";
 
-  const title = isEs ? "Tours de Cacao" : "Cacao Tours";
+  const title = isEs
+    ? "Tours de Cacao en Altamira — Finca y Fábrica Chocolala"
+    : "Cacao Tours in Altamira — Chocolala Farm & Factory";
   const description = isEs
-    ? "Vive el cacao dominicano desde adentro. 3 tours guiados en Las Lajas, Altamira: Sabor y Tradición (3h, RD$2,000), Del Árbol a tu Corazón (2h30m) y Sabor en 45 Minutos (RD$500 p/p)."
-    : "Experience Dominican cacao from within. 3 guided tours in Las Lajas, Altamira: Flavor & Tradition (3h, US$33), Tree to Heart (2h30m) and Flavor in 45 Minutes (US$9 p/p).";
+    ? "3 tours guiados de cacao en Las Lajas, Altamira, Puerto Plata: Sabor y Tradición (3h, RD$2,000), Del Árbol a tu Corazón (cruceristas) y Choco Exploradores (45 min, RD$500). Recorrido por la finca, taller de chocolate artesanal y degustación."
+    : "3 guided cacao tours in Las Lajas, Altamira, Puerto Plata: Flavor & Tradition (3h, US$33), Tree to Heart (cruise visitors) and Choco Explorers (45 min, US$9). Farm tour, artisan chocolate workshop and tasting.";
 
   return {
     title,
     description,
+    keywords: isEs
+      ? ["tour de cacao altamira", "tour chocolate puerto plata", "turismo comunitario dominicano", "finca de cacao república dominicana", "taller chocolate artesanal", "excursión cacao puerto plata", "tour agroturismo altamira", "chocolala tours"]
+      : ["cacao tour Puerto Plata", "chocolate tour Dominican Republic", "cacao farm tour Altamira", "cruise excursion chocolate Dominican Republic", "artisan chocolate workshop DR", "agritourism Dominican Republic"],
     alternates: {
       canonical: `${SITE_URL}/${locale}/tours`,
       languages: {
@@ -30,11 +79,26 @@ export async function generateMetadata({
       title: `${title} | Chocolala`,
       description,
       url: `${SITE_URL}/${locale}/tours`,
-      images: [{ url: "/catalog/tours/img-7524.webp" }],
+      images: [
+        {
+          url: `${SITE_URL}/catalog/tours/img-7524.webp`,
+          width: 1200,
+          height: 800,
+          alt: isEs ? "Tour de cacao en la finca Chocolala, Altamira" : "Cacao tour at Chocolala farm, Altamira",
+        },
+      ],
     },
   };
 }
 
 export default function ToursPage() {
-  return <ToursClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(TOURS_SCHEMA) }}
+      />
+      <ToursClient />
+    </>
+  );
 }

@@ -18,14 +18,30 @@ export const metadata: Metadata = {
   description:
     "Fábrica de chocolate artesanal en Las Lajas, Altamira, Puerto Plata. Tabletas, vinos de cacao, productos naturales y tours guiados del cacao dominicano.",
   keywords: [
-    "chocolate artesanal dominicano",
-    "cacao dominicano",
-    "tours de cacao",
-    "chocolala",
-    "altamira puerto plata",
-    "fábrica de chocolate",
-    "chocolate republica dominicana",
-    "artisan chocolate dominican republic",
+    // Marca
+    "chocolala", "chocolala altamira", "chocolala puerto plata",
+    // Chocolate — ES
+    "chocolate artesanal dominicano", "chocolate artesanal altamira",
+    "chocolate bean to bar república dominicana", "tableta chocolate 70% cacao",
+    "fábrica de chocolate artesanal", "chocolate artesanal puerto plata",
+    // Cacao & productos — ES
+    "cacao dominicano", "cacao orgánico dominicano", "manteca de cacao natural",
+    "vinos artesanales de cacao", "bolas de cacao", "snacks de cacao",
+    "productos de cacao natural", "derivados del cacao",
+    // Tours — ES
+    "tour de cacao república dominicana", "tour chocolate altamira",
+    "tour cacao puerto plata", "tour finca de cacao dominicana",
+    "experiencia cacao dominicano", "recorrido cacao artesanal",
+    "turismo comunitario altamira", "turismo comunitario dominicano",
+    "tour agroturismo cacao", "excursión chocolate puerto plata",
+    // Ubicación
+    "altamira puerto plata", "las lajas altamira", "las lajas puerto plata",
+    // EN — tourists & cruises
+    "Dominican artisan chocolate", "artisan chocolate Dominican Republic",
+    "chocolate tour Puerto Plata", "cacao farm tour Dominican Republic",
+    "chocolate experience Dominican Republic", "cacao tour Altamira",
+    "cruise excursion chocolate Puerto Plata", "Dominican cacao products",
+    "bean to bar Dominican Republic", "cacao wine Dominican Republic",
   ],
   authors: [{ name: "Chocolala" }],
   creator: "Chocolala",

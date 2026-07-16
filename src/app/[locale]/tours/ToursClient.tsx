@@ -267,10 +267,10 @@ function VideoModal({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-3xl rounded-2xl bg-chocolala-brown-dark p-6"
+            className="relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-chocolala-brown-dark p-6"
           >
-            {/* Header */}
-            <div className="mb-5 flex items-start justify-between gap-4">
+            {/* Header — siempre visible */}
+            <div className="mb-5 flex shrink-0 items-start justify-between gap-4">
               <div>
                 <p className="font-sans text-xs font-bold uppercase tracking-widest text-chocolala-orange">
                   {tourName}
@@ -290,52 +290,55 @@ function VideoModal({
               </button>
             </div>
 
-            {/* Content */}
+            {/* Content — ocupa el espacio restante sin desbordarse */}
             {videos.length > 0 ? (
               <div
-                className="relative"
+                className="flex min-h-0 flex-1 flex-col"
                 onTouchStart={onTouchStart}
                 onTouchEnd={onTouchEnd}
               >
-                {/* Video */}
-                <video
-                  key={current}
-                  src={videos[current]}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full rounded-xl bg-black"
-                />
+                {/* Video centrado, se adapta a cualquier orientación */}
+                <div className="relative flex min-h-0 flex-1 items-center justify-center">
+                  <video
+                    key={current}
+                    src={videos[current]}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="block max-w-full rounded-xl bg-black"
+                    style={{ width: "auto", height: "auto", maxHeight: "calc(92vh - 160px)" }}
+                  />
 
-                {/* Arrows — solo si hay más de un video */}
-                {videos.length > 1 && (
-                  <>
-                    <button
-                      onClick={prev}
-                      disabled={current === 0}
-                      aria-label="Video anterior"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-opacity disabled:opacity-20 hover:bg-black/80"
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
-                        <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={next}
-                      disabled={current === videos.length - 1}
-                      aria-label="Video siguiente"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-opacity disabled:opacity-20 hover:bg-black/80"
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
-                        <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                  </>
-                )}
+                  {/* Arrows — solo si hay más de un video */}
+                  {videos.length > 1 && (
+                    <>
+                      <button
+                        onClick={prev}
+                        disabled={current === 0}
+                        aria-label="Video anterior"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-opacity disabled:opacity-20 hover:bg-black/80"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+                          <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={next}
+                        disabled={current === videos.length - 1}
+                        aria-label="Video siguiente"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white transition-opacity disabled:opacity-20 hover:bg-black/80"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+                          <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
+                </div>
 
-                {/* Dots */}
+                {/* Dots — siempre visibles debajo del video */}
                 {videos.length > 1 && (
-                  <div className="mt-4 flex justify-center gap-2">
+                  <div className="mt-4 flex shrink-0 justify-center gap-2">
                     {videos.map((_, i) => (
                       <button
                         key={i}
