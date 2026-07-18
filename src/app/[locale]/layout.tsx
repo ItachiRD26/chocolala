@@ -10,7 +10,7 @@ import IntroLoader from "@/components/ui/IntroLoader";
 const OG_IMAGE = "/catalog/chocolate/chocolate70-3.webp";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://chocolala.do"),
+  metadataBase: new URL("https://www.chocolala.do"),
   title: {
     default: "Chocolala — Chocolate Artesanal Dominicano",
     template: "%s | Chocolala",
@@ -68,6 +68,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    url: "https://www.chocolala.do",
     siteName: "Chocolala",
     title: "Chocolala — Chocolate Artesanal Dominicano",
     description:
