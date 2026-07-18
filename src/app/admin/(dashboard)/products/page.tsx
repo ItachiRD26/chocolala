@@ -33,7 +33,7 @@ export default function AdminProductsPage() {
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="font-serif text-3xl text-chocolala-brown">
+        <h1 className="font-serif text-3xl text-white">
           Productos
         </h1>
         {!showForm && (
@@ -54,9 +54,7 @@ export default function AdminProductsPage() {
           onCancel={closeForm}
         />
       ) : loading ? (
-        <p className="font-sans text-sm text-chocolala-brown/60">
-          Cargando...
-        </p>
+        <p className="font-sans text-sm text-slate-500">Cargando...</p>
       ) : (
         <ProductTable
           products={products}

@@ -33,7 +33,7 @@ export default function AdminToursPage() {
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="font-serif text-3xl text-chocolala-brown">Tours</h1>
+        <h1 className="font-serif text-3xl text-white">Tours</h1>
         {!showForm && (
           <button
             type="button"
@@ -48,9 +48,7 @@ export default function AdminToursPage() {
       {showForm ? (
         <TourForm tour={editing} onSaved={handleSaved} onCancel={closeForm} />
       ) : loading ? (
-        <p className="font-sans text-sm text-chocolala-brown/60">
-          Cargando...
-        </p>
+        <p className="font-sans text-sm text-slate-500">Cargando...</p>
       ) : (
         <TourTable tours={tours} onEdit={setEditing} onDelete={handleDelete} />
       )}

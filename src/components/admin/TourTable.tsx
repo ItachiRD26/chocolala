@@ -11,46 +11,65 @@ type TourTableProps = {
 export default function TourTable({ tours, onEdit, onDelete }: TourTableProps) {
   if (tours.length === 0) {
     return (
-      <p className="rounded-2xl bg-white p-6 font-sans text-sm text-chocolala-brown/60">
-        Aún no hay tours. Crea el primero.
-      </p>
+      <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10 text-center">
+        <p className="font-sans text-sm text-slate-500">
+          Aún no hay tours. Crea el primero.
+        </p>
+      </div>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-white">
+    <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
       <table className="w-full text-left font-sans text-sm">
-        <thead className="bg-chocolala-brown/5 text-chocolala-brown/70">
-          <tr>
-            <th className="px-4 py-3">Nombre</th>
-            <th className="px-4 py-3">Duración</th>
-            <th className="px-4 py-3">Activo</th>
-            <th className="px-4 py-3" />
+        <thead>
+          <tr className="border-b border-slate-800 bg-slate-800/60">
+            <th className="px-5 py-3.5 font-semibold uppercase tracking-wide text-xs text-slate-400">Nombre</th>
+            <th className="px-5 py-3.5 font-semibold uppercase tracking-wide text-xs text-slate-400">Duración</th>
+            <th className="px-5 py-3.5 font-semibold uppercase tracking-wide text-xs text-slate-400">Estado</th>
+            <th className="px-5 py-3.5" />
           </tr>
         </thead>
         <tbody>
           {tours.map((tour) => (
-            <tr key={tour.id} className="border-t border-chocolala-brown/10">
-              <td className="px-4 py-3 text-chocolala-brown">
+            <tr
+              key={tour.id}
+              className="border-t border-slate-800 transition-colors hover:bg-slate-800/30"
+            >
+              <td className="px-5 py-3.5 font-medium text-white">
                 {tour.name.es}
               </td>
-              <td className="px-4 py-3 text-chocolala-brown/70">
+              <td className="px-5 py-3.5 text-slate-400">
                 {tour.duration}
-                {tour.ageRange ? ` · ${tour.ageRange}` : ""}
+                {tour.ageRange ? (
+                  <span className="ml-2 rounded-full bg-slate-800 px-2 py-0.5 text-xs text-slate-500">
+                    {tour.ageRange}
+                  </span>
+                ) : null}
               </td>
-              <td className="px-4 py-3">{tour.active ? "Sí" : "No"}</td>
-              <td className="px-4 py-3 text-right">
+              <td className="px-5 py-3.5">
+                {tour.active ? (
+                  <span className="rounded-full bg-emerald-950 px-2.5 py-0.5 font-sans text-xs font-semibold text-emerald-400">
+                    Activo
+                  </span>
+                ) : (
+                  <span className="rounded-full bg-slate-800 px-2.5 py-0.5 font-sans text-xs font-semibold text-slate-500">
+                    Inactivo
+                  </span>
+                )}
+              </td>
+              <td className="px-5 py-3.5 text-right">
                 <button
                   type="button"
                   onClick={() => onEdit(tour)}
-                  className="mr-3 font-semibold text-chocolala-green hover:underline"
+                  className="mr-4 font-sans text-sm font-semibold text-sky-400 transition-colors hover:text-sky-300"
                 >
                   Editar
                 </button>
                 <button
                   type="button"
                   onClick={() => onDelete(tour)}
-                  className="font-semibold text-red-600 hover:underline"
+                  className="font-sans text-sm font-semibold text-red-400 transition-colors hover:text-red-300"
                 >
                   Eliminar
                 </button>

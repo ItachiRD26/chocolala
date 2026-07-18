@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "has": [{ "type": "host", "value": "chocoadmin.chocolala.do" }],
+      "source": "/(.*)",
+      "destination": "/admin/$1"
+    }
+  ]
+}
