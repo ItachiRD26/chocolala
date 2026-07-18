@@ -65,8 +65,8 @@ export async function generateMetadata({
     title,
     description,
     keywords: isEs
-      ? ["tour de cacao altamira", "tour chocolate puerto plata", "turismo comunitario dominicano", "finca de cacao república dominicana", "taller chocolate artesanal", "excursión cacao puerto plata", "tour agroturismo altamira", "chocolala tours"]
-      : ["cacao tour Puerto Plata", "chocolate tour Dominican Republic", "cacao farm tour Altamira", "cruise excursion chocolate Dominican Republic", "artisan chocolate workshop DR", "agritourism Dominican Republic"],
+      ? ["tour de cacao altamira", "tour chocolate puerto plata", "turismo comunitario dominicano", "finca de cacao república dominicana", "taller chocolate artesanal", "excursión cacao puerto plata", "tour agroturismo altamira", "chocolala tours", "tours para niños puerto plata", "tour familiar puerto plata", "actividades para niños altamira", "cosas que hacer en puerto plata", "tour de chocolate rd", "excursiones puerto plata"]
+      : ["cacao tour Puerto Plata", "chocolate tour Dominican Republic", "cacao farm tour Altamira", "cruise excursion chocolate Dominican Republic", "artisan chocolate workshop DR", "agritourism Dominican Republic", "kids cacao tour Dominican Republic", "family tour Puerto Plata", "things to do in Puerto Plata", "chocolate rd tour"],
     alternates: {
       canonical: `${SITE_URL}/${locale}/tours`,
       languages: {

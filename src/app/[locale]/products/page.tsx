@@ -43,8 +43,8 @@ export async function generateMetadata({
     title,
     description,
     keywords: isEs
-      ? ["chocolate artesanal 70% cacao", "manteca de cacao dominicana", "vinos artesanales de cacao", "snacks de cacao", "bean to bar dominicano", "chocolate dominicano comprar", "productos naturales de cacao", "chocolala catálogo"]
-      : ["Dominican artisan chocolate", "natural cacao butter", "cacao wine Dominican Republic", "bean to bar chocolate DR", "Dominican cacao products", "chocolala catalog"],
+      ? ["chocolate artesanal", "chocolate rd", "chocolate artesanal 70% cacao", "manteca de cacao dominicana", "vinos artesanales de cacao", "snacks de cacao", "bean to bar dominicano", "chocolate dominicano comprar", "chocolate en puerto plata", "productos naturales de cacao", "chocolala catálogo", "comprar chocolate artesanal dominicano"]
+      : ["artisan chocolate Dominican Republic", "chocolate rd", "natural cacao butter Dominican Republic", "cacao wine Dominican Republic", "bean to bar chocolate DR", "Dominican cacao products", "chocolala catalog", "buy Dominican chocolate"],
     alternates: {
       canonical: `${SITE_URL}/${locale}/products`,
       languages: {

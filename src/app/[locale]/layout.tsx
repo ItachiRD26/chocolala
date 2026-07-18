@@ -19,29 +19,38 @@ export const metadata: Metadata = {
     "Fábrica de chocolate artesanal en Las Lajas, Altamira, Puerto Plata. Tabletas, vinos de cacao, productos naturales y tours guiados del cacao dominicano.",
   keywords: [
     // Marca
-    "chocolala", "chocolala altamira", "chocolala puerto plata",
-    // Chocolate — ES
-    "chocolate artesanal dominicano", "chocolate artesanal altamira",
+    "chocolala", "chocolala altamira", "chocolala puerto plata", "chocolala rd",
+    // Chocolate — ES (términos amplios y específicos)
+    "chocolate artesanal", "chocolate artesanal dominicano", "chocolate artesanal altamira",
+    "chocolate en puerto plata", "chocolate rd", "chocolate en república dominicana",
     "chocolate bean to bar república dominicana", "tableta chocolate 70% cacao",
     "fábrica de chocolate artesanal", "chocolate artesanal puerto plata",
+    "comprar chocolate artesanal", "chocolate dominicano",
     // Cacao & productos — ES
     "cacao dominicano", "cacao orgánico dominicano", "manteca de cacao natural",
     "vinos artesanales de cacao", "bolas de cacao", "snacks de cacao",
-    "productos de cacao natural", "derivados del cacao",
+    "productos de cacao natural", "derivados del cacao", "licor de cacao",
     // Tours — ES
     "tour de cacao república dominicana", "tour chocolate altamira",
     "tour cacao puerto plata", "tour finca de cacao dominicana",
+    "tours para niños puerto plata", "tours familiares puerto plata",
+    "tour para niños altamira", "actividades para niños puerto plata",
     "experiencia cacao dominicano", "recorrido cacao artesanal",
     "turismo comunitario altamira", "turismo comunitario dominicano",
     "tour agroturismo cacao", "excursión chocolate puerto plata",
+    "excursiones en puerto plata", "cosas que hacer en puerto plata",
+    "tour de chocolate república dominicana",
     // Ubicación
     "altamira puerto plata", "las lajas altamira", "las lajas puerto plata",
-    // EN — tourists & cruises
+    // EN — tourists, families & cruises
     "Dominican artisan chocolate", "artisan chocolate Dominican Republic",
     "chocolate tour Puerto Plata", "cacao farm tour Dominican Republic",
     "chocolate experience Dominican Republic", "cacao tour Altamira",
     "cruise excursion chocolate Puerto Plata", "Dominican cacao products",
     "bean to bar Dominican Republic", "cacao wine Dominican Republic",
+    "kids cacao tour Dominican Republic", "family tour Puerto Plata",
+    "things to do in Puerto Plata", "chocolate rd Dominican Republic",
+    "artisan chocolate factory Dominican Republic",
   ],
   authors: [{ name: "Chocolala" }],
   creator: "Chocolala",
